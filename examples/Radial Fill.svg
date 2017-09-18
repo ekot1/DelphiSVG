@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="800" height="400" viewBox="0 0 800 400" version="1.1">
+	<g>
+		<defs>
+			<radialGradient id="MyGradient" gradientUnits="userSpaceOnUse" cx="400" cy="200" r="300" fx="400" fy="200" spreadMethod="pad">
+				<stop offset="0%" stop-color="red" />
+				<stop offset="50%" stop-color="blue" />
+				<stop offset="100%" stop-color="red" />
+			</radialGradient>
+		</defs>
+
+		<rect fill="none" stroke="blue" x="1" y="1" width="798" height="398"/>
+		<rect fill="url(#MyGradient)" fill-opacity="0.5" stroke="black" stroke-width="5" x="100" y="100" width="600" height="200"/>
+	</g>
+</svg>

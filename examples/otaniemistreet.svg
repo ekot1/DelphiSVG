@@ -1,0 +1,362 @@
+<?xml version="1.0" standalone="no"?>
+<!--<!DOCTYPE svg SYSTEM "svg-20000303-stylable.dtd">-->
+<svg width="597" height="744" viewBox="0 0 800 1050">
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="40" y1="334" x2="32" y2="341"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="40,334,58,317,60,315"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="68,307,71,307,79,305"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="79" y1="305" x2="97" y2="301"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="97" y1="301" x2="100" y2="301"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="100" y1="301" x2="120" y2="297"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="122" y1="296" x2="143" y2="293"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="31" y1="380" x2="27" y2="365"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="46" y1="377" x2="31" y2="380"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="438,372,425,338,430,333"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="365,235,361,240,350,256" transform="matrix(2.93333 0 0 1.71429 -705.667 -167.857)"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="144,534,146,535,147,537,151,560,140,577"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="75" y1="498" x2="71" y2="479"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="75,498,77,508,80,551"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="185,215,180,207,178,201"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="185,215,187,221,195,233,203,246,213,262,224,275,237,290,248,300,264,316,274,325"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="338,377,347,385,358,394,366,404,375,414,385,423,397,431,402,434"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="340,479,343,480,349,482,352,481"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="358,511,356,511,352,512,350,511,348,507,352,481"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="27,301,31,298,38,295,39,293,38,287"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="97,301,97,296,97,291"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="328,551,333,532,334,528,338,516,339,511,338,496,338,489,339,483,340,479"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="340,479,341,477,341,475"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="75,498,87,495,88,495"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="477,180,479,181,481,182,488,183,497,183,504,180,509,174,515,166,518,156,521,148,524,141,529,132,532,126,532,120"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="185,215,168,224,151,233,139,238,136,238"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="136" y1="238" x2="126" y2="240"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="102,241,97,241,84,245,77,247"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="77,247,82,271,83,277"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="472,372,481,369,493,364,512,360,577,345"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="402,434,409,422,419,410,432,398,443,389,453,382,464,376,472,372"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="62,362,65,364,69,367,76,370,82,372,84,375,94,419"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="58" y1="428" x2="94" y2="419"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="94" y1="419" x2="110" y2="415"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="76" y1="191" x2="73" y2="199"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="105" y1="200" x2="76" y2="191"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="385,519,380,519,374,518"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="470,426,472,421,473,415,475,381,472,372"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="391,279,383,271,381,270,377,270,358,282,354,287,348,292,343,296,330,316"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="297,383,297,378,297,372,296,366,292,359,282,351,277,346"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="243,318,237,313,226,303"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="186,384,169,391,156,394"/>
+	<polyline style="stroke:#202020; stroke-width:1; fill:none" points="408,382,397,346,390,326,389,322,390,317,392,314,393,309,392,304,389,299,381,290"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="330,206,339,182,343,174"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="343,174,343,169,346,162,362,136"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="207,413,216,435,220,437,222,441"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="196,410,198,413,202,414,207,413"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="207,413,231,403,238,402,243,400"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="67,462,76,460,78,459,79,459"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="436" y1="288" x2="425" y2="314"/>
+	<line style="stroke:#12ff00; stroke-width:1; fill:none" x1="329" y1="612" x2="313" y2="609"/>
+	<line style="stroke:#12ff00; stroke-width:1; fill:none" x1="574" y1="705" x2="560" y2="699"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="443,271,442,273,440,273"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="443,271,454,254,458,250,462,250,482,250,489,252,506,252"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="236,331,239,328,241,323,243,318"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="188" y1="388" x2="218" y2="372"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="218,372,221,366,223,360,224,356"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="186" y1="384" x2="188" y2="388"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="186,384,178,370,176,363"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="199,323,199,318,198,310,194,302,187,295,182,287"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="196" y1="410" x2="188" y2="388"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="137,463,135,464,122,467,71,479"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="173,455,140,463,137,463"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="71,479,63,480,54,481,41,480,39,479"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="391,279,395,282,399,286,402,289,418,307,425,313,425,314"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="149" y1="207" x2="126" y2="218"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="136,238,137,245,135,255"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="135,255,134,258,135,262"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="438,372,444,370,450,366,454,363,462,357,468,356"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="353,371,358,375,363,380,372,385,380,387,390,385,408,382"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="408" y1="382" x2="438" y2="372"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="135,255,128,253,125,249"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="275,399,279,399,282,398,287,398,297,399,300,399,303,399,305,402,306,403,320,406"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="218,372,230,383,233,384,237,382,240,379,240,375"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="528" y1="708" x2="526" y2="711"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="213" y1="205" x2="218" y2="181"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="83,277,69,276,64,277"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="113" y1="278" x2="83" y2="277"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="62,362,66,358,71,354,73,353,80,349,87,348,93,350,98,355,101,361,102,370"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="46,377,50,374,53,370,54,369,57,365,62,362"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="409,168,414,160,415,157"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="365,235,369,229,377,214,387,201"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="387" y1="201" x2="409" y2="168"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="474,155,478,167,479,174,477,180"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="477,180,466,189,461,196,455,207,452,212,446,218,438,228,432,236,429,245,429,253,433,261,438,269,440,273"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="436,288,438,282,440,273"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="481" y1="308" x2="472" y2="298"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="443,271,446,272,447,274,455,282"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="365,235,359,227,348,216,340,211,330,206"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="218,181,204,178,203,177,200,177,194,178"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="468,356,469,359,472,372"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="468" y1="356" x2="463" y2="333"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="463,333,461,322,457,314,451,305,449,303,436,288"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="436,288,424,274,417,270,402,266,397,263"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="397,263,390,259,380,252"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="463,333,467,333,470,330,481,308"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="481" y1="308" x2="491" y2="299"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="491,299,503,287,505,284,506,279,506,252"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="275" y1="399" x2="271" y2="386"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="274,343,275,360,274,363,273,369,272,370,273,371,281,374,291,373"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="85,326,84,321,82,318,81,314,79,305"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="236,331,244,335,247,337,249,336,254,327"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="104,322,106,315,107,313,106,310,100,301"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="32,341,30,336,10,302"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="46,377,44,368,40,358,37,350,32,341"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="71,479,70,474,67,464,67,462"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="67" y1="462" x2="64" y2="452"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="58" y1="428" x2="55" y2="415"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="199,323,201,323,206,320,211,316,217,309,223,305,226,303"/>
+	<line style="stroke:#202020; stroke-width:1; fill:none" x1="387" y1="201" x2="343" y2="174"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="409" y1="168" x2="427" y2="205" transform="matrix(2.27778 0 0 1.35135 -522.611 -59.027)"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="491,299,490,297,490,274"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="181,521,148,520,147,520,145,524,144,534"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="144" y1="534" x2="115" y2="541"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="409,168,365,137,362,136"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="190,522,204,536,208,536,214,532,219,526,224,518,226,516"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="181" y1="521" x2="190" y2="522"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="196,515,208,518,210,516,215,504,214,500,212,498,208,500,201,500"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="190,522,194,519,196,515"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="474,155,477,153,481,144,484,138"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="484,138,487,134,492,129,498,126,506,123,511,121,516,117,519,112,519,107"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="484,138,479,127,474,118,469,112,462,104,458,99,456,94"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="123,323,124,318,125,314,128,308,122,296"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="271" y1="386" x2="297" y2="383"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="271,386,252,389,232,393,219,397,208,402,199,407,196,410"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="320,381,307,381,297,383"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="353" y1="371" x2="338" y2="377"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="181,521,181,515,181,503,181,499,180,485,178,478,177,470,175,463,173,455"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="338,377,334,377,326,380,320,381"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="173" y1="455" x2="179" y2="439"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="196,410,192,414,182,432,179,439"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="179,439,173,437,164,437,161,436,148,424,129,429"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="137" y1="463" x2="133" y2="446"/>
+	<polyline style="stroke:#c00000; stroke-width:1; fill:none" points="251,256,247,249,218,209,213,205"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="213,205,203,206,192,211,185,215"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="344,324,336,319,330,316"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="353,371,354,367,357,362,357,360,357,356,354,343,353,341,351,335,347,329,344,324"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="330,316,323,315,311,314,295,314,290,313"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="101,221,101,228,102,241"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="109" y1="133" x2="111" y2="169"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="105,200,101,212,101,219,101,221"/>
+	<polyline style="stroke:#c00000; stroke-width:1; fill:none" points="330,206,326,216,319,224,299,240,286,249,281,251,259,255,251,256"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="138,133,128,133,123,133"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="68,307,63,300,65,287"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="381,290,387,285,391,279"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="391,279,395,269,397,263"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="344,324,348,318,352,315,381,290"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="181,521,180,529,180,539,179,554,179,556,181,583"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="463,432,465,434,472,446"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="415" y1="157" x2="397" y2="145"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="415,157,417,154,418,136,421,130,425,125,431,118,439,116,447,117,453,123,469,139,473,147,474,155"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="425,314,431,330,430,333"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="463" y1="432" x2="470" y2="426"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="418" y1="450" x2="429" y2="444"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="156" y1="132" x2="138" y2="133"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="123" y1="220" x2="126" y2="218"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="111" y1="169" x2="124" y2="169"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="111,169,112,175,111,179,111,182,105,200"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="123,220,122,227,126,234,126,240"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="123" y1="220" x2="101" y2="221"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="76" y1="191" x2="71" y2="189"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="135" y1="262" x2="138" y2="270"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="142" y1="283" x2="143" y2="293"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="143,293,158,291,182,287"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="120" y1="297" x2="113" y2="278"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="122" y1="296" x2="120" y2="297"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="61" y1="438" x2="58" y2="428"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="55" y1="415" x2="69" y2="413"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="55,415,52,405,46,377"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="79" y1="459" x2="125" y2="448"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="133" y1="446" x2="129" y2="429"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="176,363,173,364,167,364,160,365,152,366,149,367,144,369,139,369,137,368,136,366"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="176,363,175,358,178,352,187,345,188,343"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="528" y1="708" x2="537" y2="703"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="528,708,526,703,523,699,522,698"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="196,515,200,502,201,500"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="115" y1="541" x2="111" y2="526"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="115" y1="541" x2="124" y2="571"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="125" y1="486" x2="133" y2="484"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="385,519,386,524,386,529,384,537,379,548,369,569,363,582,362,589,361,593,362,598,363,601,366,604,374,608,382,610,394,612"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="414,645,413,646,412,646,409,646,403,644,401,644,400,644,398,646,397,648,397,650,398,652,399,652,400,653,406,652,414,652,420,653,425,656,430,659,432,662,435,665,438,668,441,668,445,668,447,667"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="421,623,419,633,416,640,415,643,414,645"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="522,698,523,694,533,674"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="518,680,493,665,477,656,468,652,459,648,447,643,423,635,416,633,408,631"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="88,495,89,495,92,494"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="62" y1="362" x2="55" y2="346"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="224,356,225,349,227,344,236,331"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="115,541,95,546,80,551"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="128" y1="631" x2="149" y2="629"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="127" y1="617" x2="124" y2="624"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="329,612,333,599,347,579"/>
+	<line style="stroke:#12ff00; stroke-width:1; fill:none" x1="371" y1="621" x2="359" y2="618"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="182,596,183,605,180,610"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="402,434,396,444,391,455,390,459,380,493,379,499,374,518"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="182,596,181,596,176,596,167,596"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="181" y1="583" x2="182" y2="596"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="180,610,175,612,162,612,149,612,133,613,127,617"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="244" y1="612" x2="226" y2="609"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="248,600,228,598,206,597,196,597"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="180" y1="610" x2="226" y2="609"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="181" y1="583" x2="270" y2="588"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="408,631,385,622,371,616,362,610,355,605,352,601,349,594,348,589,347,579"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="408,631,402,629,377,622,371,621"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="347,579,338,587,330,592,320,596,313,598"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="359,618,344,608,331,599,322,595,309,592"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="359,618,350,616,342,614"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="313" y1="598" x2="270" y2="588"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="313,598,308,599,299,600,281,600,270,600,248,600"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="167,596,165,596,144,597,124,598,116,599,106,600"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="196,597,182,596,182,596"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="197,617,208,617,244,612"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="106,600,136,603,144,605,151,606,170,613,187,617,197,617"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="226" y1="609" x2="265" y2="602"/>
+	<line style="stroke:#12ff00; stroke-width:1; fill:none" x1="265" y1="602" x2="248" y2="600"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="329,612,328,624,331,633,337,638,344,639,347,636"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="329,612,325,620,324,625,324,631,327,637,330,641,333,644,338,646,344,646,347,645,353,642,364,636"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="347,636,347,634,346,631"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="305" y1="621" x2="244" y2="612"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="346,631,343,628,337,627,325,624,311,622,305,621"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="364,636,370,634,380,633,390,632,397,632,408,631"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="309,592,296,590,277,589,270,588"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="313,609,302,607,287,604,265,602"/>
+	<line style="stroke:#12ff00; stroke-width:1; fill:none" x1="342" y1="614" x2="329" y2="612"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="364,636,355,635,346,631"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="394,612,420,620,421,623"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="347,579,362,551,366,541,369,532,374,518"/>
+	<polyline style="stroke:#12ff00; stroke-width:1; fill:none" points="560,699,544,692,536,689,530,686,518,680"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="537,703,544,707,550,709,572,712"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="537,703,531,699,526,693,518,680"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="560,699,554,685,551,682,548,679,536,674,533,674"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="277" y1="346" x2="274" y2="343"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="290" y1="313" x2="277" y2="346"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="274,325,282,331,289,338,293,341"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="293,341,321,363,326,367,338,377"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="290,313,280,308,270,299,266,294,263,290,258,276"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="168,181,163,170,160,158,158,148,157,139,156,134,156,132"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="178,201,173,191,168,181"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="149,207,152,200,157,196,187,186,191,184,193,181,194,178"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="149" y1="207" x2="155" y2="205"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="64" y1="187" x2="71" y2="189"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="60,315,62,312,68,307"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="60,315,54,304,46,281"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="188,343,191,340,197,332,199,323"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="188,343,183,337,175,332,167,329,161,326,158,324,153,323,144,325,128,329,124,329,120,327,114,327,103,329,96,331,90,332,85,332,78,330,70,325,66,322,60,315"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="226" y1="303" x2="215" y2="287"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="215,287,205,274,197,268,193,265,186,266,181,269,179,274,181,282,182,287"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="258,276,252,260,251,256"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="380,252,379,251,365,235"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="380,252,356,263,320,274,307,276,295,276,277,274,265,274,261,274,258,276"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="258,276,254,278,251,280"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="251,280,243,288,237,295,232,299,226,303"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="254" y1="327" x2="243" y2="318"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="274" y1="343" x2="254" y2="327"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="506" y1="252" x2="507" y2="219"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="125" y1="448" x2="133" y2="446"/>
+	<line style="stroke:#fa0814; stroke-width:1; fill:none" x1="64" y1="452" x2="61" y2="438"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="64,452,73,450,75,446,84,444"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="133" y1="484" x2="146" y2="480"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="92" y1="494" x2="125" y2="486"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="146,480,153,479,157,479"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="13,535,15,533,25,522,40,507,49,499,56,494,61,493,65,493,69,495,75,498"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="229,448,237,449,240,448,252,442,261,439,271,435,277,431,279,426,279,417,275,399"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="196,410,205,436,207,440,211,441,222,445,229,448"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="229,448,235,453,243,459,249,463,254,465,258,465,264,463,280,454,291,448,301,444,310,442,316,441,320,441,324,443,326,447,327,455,327,462,328,468,330,470,341,475"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="341,475,346,454,347,447,347,443,348,421,346,413,341,407,325,392,321,387,320,381"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="226" y1="516" x2="232" y2="511"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="226,516,226,499,228,478,229,448"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="157,479,161,481,179,503"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="194,178,190,155,188,142"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="352,481,354,480,356,478,357,474,361,451,365,447,372,448,374,450,372,457"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="142" y1="283" x2="138" y2="270"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="79,305,79,300,82,287"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="82" y1="287" x2="83" y2="277"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="194,178,186,179,182,180,180,176,172,145,171,140,173,140,175,140,188,142"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="385,519,390,515,392,509,397,494"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="126,218,125,198,124,169"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="124" y1="169" x2="138" y2="168"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="138" y1="163" x2="138" y2="168"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="138" y1="168" x2="139" y2="180"/>
+	<line style="stroke:#000000; stroke-width:1; fill:none" x1="123" y1="133" x2="109" y2="133"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="123" y1="133" x2="124" y2="169"/>
+	<polyline style="stroke:#d9e6eb; stroke-width:1; fill:none" points="526,711,533,712,540,712,546,713,555,714,565,716,570,718,572,719"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="526,711,523,716,520,719,516,723,503,732,499,734,488,738"/>
+	<polyline style="stroke:#fa0814; stroke-width:1; fill:none" points="126,240,117,240,102,241"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="472" y1="446" x2="434" y2="461"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="429,444,432,442,437,440,449,437,456,434,463,432"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="434" y1="461" x2="429" y2="444"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="406,475,415,454,418,450"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="397" y1="494" x2="407" y2="513"/>
+	<polyline style="stroke:#000000; stroke-width:1; fill:none" points="397,494,404,480,406,475"/>
+	<line style="stroke:#d9e6eb; stroke-width:1; fill:none" x1="434" y1="461" x2="406" y2="475"/>
+	<polyline style="stroke:none; fill:none" points="449,95,449,43,110,43,110,95,449,95"/>
+	<text style="font-size:36; font-family:Helvetica; fill:#000000" transform="matrix(1 0 0 1 110 43)"/>
+	<text style="font-size:11; font-family:Times; fill:#ff6633" transform="matrix(0.7071 0.7071 -0.7071 0.7071 366.1 -244.7)"/>
+	<text style="font-size:16; font-family:Times; fill:#3333ff" transform="matrix(1 0 0 1 6.072 -570.7)"/>
+	<text style="font-size:20; font-family:Times; fill:#000000" transform="matrix(1 0 0 1 69.38 -790.1)"/>
+	<text style="font-size:20; font-family:Times; fill:#ccccff" transform="matrix(1 0 0 1 31.25 247.1)"/>
+	<text style="font-size:20; font-family:Times; fill:#ccccff" transform="matrix(1 0 0 1 17.58 815.9)"/>
+	<text style="font-size:12; font-family:Times; fill:#ff6633" transform="matrix(0.2588 -0.9659 0.9659 0.2588 -108.7 773.9)"/>
+	<text style="font-size:12; font-family:Times; fill:#ff6633" transform="matrix(0.9816 0.1908 -0.1908 0.9816 102.3 -496.4)"/>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:1; font-size:17; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1.52949 0 0 1.9942 196.685 50.7465)">Otaniemi Areal View</text>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.6; font-size:9; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.769262 0.638933 -0.638933 0.769262 254.688 304.798)">Hagalundintie</text>
+	<text style="stroke:#0000ff; stroke-width:1; stroke-opacity:1; font-size:20; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1.11367 0 0 1.42254 297.42 97.3732)">Otaniemi</text>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.6; font-size:9; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.987913 -0.155008 0.155008 0.987913 228.601 389.884)">Tapiolantie</text>
+	<path style="stroke:#800000; stroke-width:2; stroke-opacity:0.35; stroke-linejoin:round; stroke-miterlimit:3; stroke-linecap:square; fill:#ffffff; fill-opacity:0.35" d="M 216 179 c 16.3321 0 111.696 18.9275 120 30" transform="matrix(1 0 0 1 0 0)"/>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.59; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.981643 0.190725 -0.190725 0.981643 259.88 185.128)">Otaniementie</text>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.59; font-size:9; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.710371 -0.703828 0.703828 0.710371 408.542 433.48)">Karhusaarentie</text>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.59; font-size:9; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.558038 0.829816 -0.829816 0.558038 429.742 293.467)">Otaniementie</text>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.59; font-size:9; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.77807 -0.628178 0.628178 0.77807 289.257 243.743)">Tietotie</text>
+	<text style="stroke:#c00000; stroke-width:1; stroke-opacity:0.59; font-size:9; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.522445 0.852673 -0.852673 0.522445 226.018 210.767)">Tekniikantie</text>
+	<text style="stroke:#0000ff; stroke-width:1; stroke-opacity:1; font-size:27; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1 0 0 1 431 483)">Keilaniemi</text>
+	<text style="stroke:#c0c0ff; stroke-width:1; stroke-opacity:1; font-size:48; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1 0 0 1 79 564)">Tapiola</text>
+	<text style="stroke:#0000ff; stroke-width:1; stroke-opacity:1; font-size:17; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1 0 0 1 258 218)">Maari</text>
+	<text style="stroke:#0000ff; stroke-width:1; stroke-opacity:1; font-size:17; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1 0 0 1 233 163)">Maarinranta</text>
+	<text style="stroke:#400000; stroke-width:1; stroke-opacity:1; font-size:17; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(0.892426 0.451194 -0.451194 0.892426 451.481 638.87)">Helsinkiin</text>
+	<line style="stroke:#0000c0; stroke-width:2; stroke-opacity:0.35; stroke-linejoin:miter; stroke-miterlimit:3; stroke-linecap:square; fill:#ffffff; fill-opacity:0.35" x1="579" y1="24" x2="32" y2="24" transform="matrix(1.03656 0 0 1 -21.1698 0)"/>
+	<line style="stroke:#0000c0; stroke-width:2; stroke-opacity:0.35; stroke-linejoin:miter; stroke-miterlimit:3; stroke-linecap:square; fill:#ffffff; fill-opacity:0.35" x1="573" y1="30" x2="573" y2="800" transform="matrix(1 0 0 1.03377 0 -12.013)"/>
+	<line style="stroke:#0000c0; stroke-width:2; stroke-opacity:0.35; stroke-linejoin:miter; stroke-miterlimit:3; stroke-linecap:square; fill:#ffffff; fill-opacity:0.35" x1="573" y1="812" x2="12" y2="812" transform="matrix(1 0 0 1 0 0)"/>
+	<line style="stroke:#0000c0; stroke-width:2; stroke-opacity:0.35; stroke-linejoin:miter; stroke-miterlimit:3; stroke-linecap:square; fill:#ffffff; fill-opacity:0.35" x1="16" y1="798" x2="16" y2="18" transform="matrix(1 0 0 1.02179 0 -0.392308)"/>
+	<line style="stroke:#000000; stroke-width:5; stroke-opacity:0.99; stroke-linejoin:round; stroke-miterlimit:3; stroke-linecap:square; fill:#ffffff; fill-opacity:0.35" x1="196" y1="57" x2="416" y2="57" transform="matrix(1 0 0 1 0 0)"/>
+	<text style="stroke:#0000ff; stroke-width:1; stroke-opacity:1; font-size:13; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1 0 0 1 18 35)">GO-MM</text>
+	<text style="stroke:#0000ff; stroke-width:1; stroke-opacity:1; font-size:13; font-family:Times New Roman; fill:#ffffff; fill-opacity:1" transform="matrix(1 0 0 1 519 805)">GO-MM</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.968564 -0.248764 0.248764 0.968564 393.513 383.154)">Miestentie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.269647 0.962959 -0.962959 0.269647 334.686 407.326)">Itaranta</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.594631 -0.803999 0.803999 0.594631 388.4 212.844)">Otakaari</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.634935 -0.557072 0.752401 0.857566 449.062 226.177)">Otakaari</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.635649 -0.771978 0.771978 0.635649 349.964 318.787)">Vuorimiehentie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:7; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.857048 0.515237 -0.515237 0.857048 367.157 133.464)">Sahkomiehentie</text>
+	<text style="stroke:#c0c0ff; stroke-width:1; stroke-opacity:0.58; font-size:20; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.833166 0.553024 -0.553024 0.833166 411.274 135.232)">Servinniemi</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.558324 -0.829623 0.829623 0.558324 489.208 319.544)">Otaranta</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(-0.079776 -0.996813 0.996813 -0.079776 515.536 252.252)">Otaranta</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.0640415 0.997947 -0.997947 0.0640415 177.284 288.221)">Meninkaisentie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(-0.0583224 -0.998298 0.998298 -0.0583224 175.98 516.64)">Tapiolantie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.459538 -0.888158 0.888158 0.459538 213.171 367.498)">Mantyviita</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.657857 0.753143 -0.753143 0.657857 220.584 292.292)">Kimmelt</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.805304 0.592862 -0.592862 0.805304 262.987 281.085)">Tekniikantie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.721696 -0.69221 0.69221 0.721696 330.944 301.425)">Kemistintie</text>
+	<rect style="stroke:#000040; stroke-width:1; stroke-opacity:1; fill:#ffffff; fill-opacity:1" x="143" y="130" width="31" height="12" transform="matrix(1 0 0 1 0 0)"/>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(1 0 0 1.28249 151 135.963)">Keha I</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.903594 -0.428391 0.428391 0.903594 143.344 243.038)">Kalevalav</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:10; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.237075 -0.971491 0.971491 0.237075 327.102 542.875)">Otaranta</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(1 0 0 1 279 406)">Nallenpolku</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.899781 -0.436341 0.436341 0.899781 236.582 448.382)">Otsolahdentie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.921495 -0.38839 0.38839 0.921495 216.372 416.281)">Kontiontie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.507435 0.86169 -0.86169 0.507435 201.57 420.8)">Kontionki</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.084217 -0.996447 0.996447 0.084217 268.66 373.951)">Otsonkallio</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.707011 0.707202 -0.707202 0.707011 450.37 117.838)">Otakaari</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.252962 -0.967476 0.967476 0.252962 519.878 182.403)">Jamerantaival</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.649185 -0.760631 0.760631 0.649185 488.058 148.145)">Servin - Marjant</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.587212 0.809433 -0.809433 0.587212 467.033 102.259)">Servinkj</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.981876 -0.189526 0.189526 0.981876 446.939 266.366)">Luolamiehent.</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.63937 0.768899 -0.768899 0.63937 414.271 166.241)">Rakentajanaukio</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.809297 -0.5874 0.5874 0.809297 324.243 262.237)">Biologinkj</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.384688 0.923047 -0.923047 0.384688 380.901 327.691)">Kivimiehent</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.327316 0.944915 -0.944915 0.327316 425.514 329.209)">Betoninkj</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.393867 -0.919167 0.919167 0.393867 330.494 190.072)">Konemiehentie</text>
+	<text style="stroke:#800000; stroke-width:1; stroke-opacity:0.58; font-size:8; font-family:Times New Roman; fill:#ffffff; fill-opacity:0.1" transform="matrix(0.827081 0.562083 -0.562083 0.827081 348.527 171.953)">Puumiehenkj</text>
+</svg>
+<!-- GO - MM 20.Nov.2000 Farooq -->

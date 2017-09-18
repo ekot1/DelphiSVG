@@ -1,0 +1,51 @@
+package SVGPackage;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'MWK - SVG'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  xmlrtl;
+
+contains
+  SVG in 'SVG.pas',
+  SVGColor in 'SVGColor.pas',
+  SVGPaint in 'SVGPaint.pas',
+  SVGParse in 'SVGParse.pas',
+  SVGPath in 'SVGPath.pas',
+  SVGProperties in 'SVGProperties.pas',
+  SVGStyle in 'SVGStyle.pas',
+  SVGTypes in 'SVGTypes.pas',
+  SVGCommon in 'SVGCommon.pas',
+  GDIPKerning in '..\gdip\GDIPKerning.pas',
+  GDIPOBJ2 in '..\gdip\GDIPOBJ2.pas',
+  GDIPPathText in '..\gdip\GDIPPathText.pas',
+  GDIPUtils in '..\gdip\GDIPUtils.pas';
+
+end.

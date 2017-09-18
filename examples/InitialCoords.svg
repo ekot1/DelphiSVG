@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="200px" height="200px" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+  <desc>Example InitialCoords - SVG's initial coordinate system</desc>
+
+  <g fill="none" stroke="black" stroke-width="3" >
+    <line x1="0" y1="1.5" x2="200" y2="1.5" />
+    <line x1="1.5" y1="0" x2="1.5" y2="200" />
+  </g>
+  <g fill="red" stroke="none" >
+    <rect x="0" y="0" width="3" height="3" />
+    <rect x="197" y="0" width="3" height="3" />
+    <rect x="0" y="197" width="3" height="3" />
+    <rect x="99" y="99" width="3" height="3" />
+  </g>
+  <g font-size="14" font-family="Verdana" >
+    <text x="10" y="20">(0,0)</text>
+    <text x="140" y="20">(200,0)</text>
+    <text x="10" y="190">(0,200)</text>
+  </g>
+	<g style="fill:#6174a7">
+		<path d="M 100 100 
+                 a20,20 -30 0,0 50,0 
+          z"/>
+        </g>
+</svg>

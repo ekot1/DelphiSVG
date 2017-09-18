@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <rect x="50" y="50" height="110" width="110"
+          style="stroke:#ff0000; fill: #ccccff"
+          transform="translate(30) rotate(45 50 50)"
+            >
+    </rect>
+    <text x="70" y="100"
+          transform="translate(30) rotate(45 50 50)">Hello World</text>
+</svg>

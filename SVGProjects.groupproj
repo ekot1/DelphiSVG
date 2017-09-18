@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{740F3D4F-3334-44F6-BC92-84B3F3A6AD9E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="svg\SVGPackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="svgimage\SVGImagePackageR.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="svgimage\SVGImagePackageD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SvgViewer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SVGPackage">
+        <MSBuild Projects="svg\SVGPackage.dproj"/>
+    </Target>
+    <Target Name="SVGPackage:Clean">
+        <MSBuild Projects="svg\SVGPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SVGPackage:Make">
+        <MSBuild Projects="svg\SVGPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SVGImagePackageR">
+        <MSBuild Projects="svgimage\SVGImagePackageR.dproj"/>
+    </Target>
+    <Target Name="SVGImagePackageR:Clean">
+        <MSBuild Projects="svgimage\SVGImagePackageR.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SVGImagePackageR:Make">
+        <MSBuild Projects="svgimage\SVGImagePackageR.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SVGImagePackageD">
+        <MSBuild Projects="svgimage\SVGImagePackageD.dproj"/>
+    </Target>
+    <Target Name="SVGImagePackageD:Clean">
+        <MSBuild Projects="svgimage\SVGImagePackageD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SVGImagePackageD:Make">
+        <MSBuild Projects="svgimage\SVGImagePackageD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SvgViewer">
+        <MSBuild Projects="SvgViewer.dproj"/>
+    </Target>
+    <Target Name="SvgViewer:Clean">
+        <MSBuild Projects="SvgViewer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SvgViewer:Make">
+        <MSBuild Projects="SvgViewer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SVGPackage;SVGImagePackageR;SVGImagePackageD;SvgViewer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SVGPackage:Clean;SVGImagePackageR:Clean;SVGImagePackageD:Clean;SvgViewer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SVGPackage:Make;SVGImagePackageR:Make;SVGImagePackageD:Make;SvgViewer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

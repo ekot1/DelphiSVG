@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="505" height="416" viewBox="0 0 505 416" overflow="visible" enable-background="new 0 0 505 416">
+	<g id="Ebene_1">
+		<rect x="164.5" y="31.5" fill="#351FFF" stroke="url(#XMLID_2_)" stroke-width="10" width="250" height="170"/>
+			<g>
+				<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="15.4995" y1="294.3906" x2="172.4995" y2="294.3906" gradientTransform="matrix(1 0 0 -1 46.0005 628.3906)">
+					<stop  offset="0" style="stop-color:#FF0000"/>
+					<stop  offset="0.1197" style="stop-color:#FB0104"/>
+					<stop  offset="0.2468" style="stop-color:#EE0410"/>
+					<stop  offset="0.3775" style="stop-color:#D90824"/>
+					<stop  offset="0.5106" style="stop-color:#00FFFF"/>
+					<stop  offset="0.6456" style="stop-color:#951765"/>
+					<stop  offset="0.7822" style="stop-color:#662191"/>
+					<stop  offset="0.9174" style="stop-color:#2F2DC5"/>
+					<stop  offset="1" style="stop-color:#0A35E8"/>
+				</linearGradient>
+		</g>
+	</g>
+</svg>

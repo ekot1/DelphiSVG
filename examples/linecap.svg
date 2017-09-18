@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 12.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 51448)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  version="1.1" id="Ebene_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="452" height="381" viewBox="0 0 452 381"
+	 overflow="visible" enable-background="new 0 0 452 381" xml:space="preserve">
+<g>
+	<rect x="0.5" y="0.5" fill="none" stroke="#3A53A4" width="451" height="73"/>
+	<g transform="translate(75.6,28.3)">
+		<line fill="#010101" stroke="#010101" stroke-width="26.4" x1="-47.7" y1="-0.5" x2="46.7" y2="-0.5"/>
+		<line fill="#010101" stroke="#FACCCC" stroke-width="1.8" x1="-47.7" y1="-0.5" x2="46.7" y2="-0.5"/>
+		<circle id="circle1" fill="#FACCCC" cx="-47.7" cy="-0.5" r="3"/>
+		<circle id="circle2" fill="#FACCCC" cx="46.7" cy="-0.5" r="3"/>
+		<text transform="matrix(1 0 0 1 -24.1396 33.5003)" fill="#010101" font-family="'ArialMT'" font-size="12">&apos;butt&apos; cap</text>
+	</g>
+	<g transform="translate(226.8,28.3)">
+		<line fill="none" stroke="#010101" stroke-width="26.4" stroke-linecap="round" x1="-47.7" y1="-0.5" x2="46.7" y2="-0.5"/>
+		<line fill="none" stroke="#FACCCC" stroke-width="1.8" x1="-47.7" y1="-0.5" x2="46.7" y2="-0.5"/>
+		<circle id="circle1_1_" fill="#FACCCC" cx="-47.7" cy="-0.5" r="3"/>
+		<circle id="circle2_1_" fill="#FACCCC" cx="46.7" cy="-0.5" r="3"/>
+		<text transform="matrix(1 0 0 1 -29.4778 33.5003)" fill="#010101" font-family="'ArialMT'" font-size="12">&apos;round&apos; cap</text>
+	</g>
+	<g transform="translate(378,28.3)">
+		<line fill="none" stroke="#010101" stroke-width="26.4" stroke-linecap="square" x1="-47.7" y1="-0.5" x2="46.7" y2="-0.5"/>
+		<line fill="none" stroke="#FACCCC" stroke-width="1.8" x1="-47.7" y1="-0.5" x2="46.7" y2="-0.5"/>
+		<circle id="circle1_2_" fill="#FACCCC" cx="-47.7" cy="-0.5" r="3"/>
+		<circle id="circle2_2_" fill="#FACCCC" cx="46.7" cy="-0.5" r="3"/>
+		<text transform="matrix(1 0 0 1 -32.478 33.5003)" fill="#010101" font-family="'ArialMT'" font-size="12">&apos;square&apos; cap</text>
+	</g>
+</g>
+<g transform="translate(0, 100)">
+	<rect x="0.5" y="0.5" fill="none" stroke="#3A53A4" width="451" height="130"/>
+	<g transform="translate(75.6,28.3)">
+		<path fill="none" stroke="#010101" stroke-width="26.4" d="M-47.7,56.2L-0.5-0.5l47.2,56.7"/>
+		<path fill="none" stroke="#FACCCC" stroke-width="1.8" d="M-47.7,56.2L-0.5-0.5l47.2,56.7"/>
+		<circle fill="#FACCCC" cx="-0.5" cy="-0.5" r="3"/>
+		<text transform="matrix(1 0 0 1 -27.1308 86.5003)" fill="#010101" font-family="'ArialMT'" font-size="12">&apos;miter&apos; join</text>
+	</g>
+	<g transform="translate(226.8,28.3)">
+		<path fill="none" stroke="#010101" stroke-width="26.4" stroke-linejoin="round" d="M-47.7,56.2L-0.501-0.5L46.7,56.2"/>
+		<path fill="none" stroke="#FACCCC" stroke-width="1.8" d="M-47.7,56.2L-0.501-0.5L46.7,56.2"/>
+		<circle fill="#FACCCC" cx="-0.501" cy="-0.5" r="3"/>
+		<text transform="matrix(1 0 0 1 -29.1438 86.5003)" fill="#010101" font-family="'ArialMT'" font-size="12">&apos;round&apos; join</text>
+	</g>
+	<g transform="translate(378,28.3)">
+		<path fill="none" stroke="#010101" stroke-width="26.4" stroke-linejoin="bevel" d="M-47.7,56.2L-0.5-0.5l47.2,56.7"/>
+		<path fill="none" stroke="#FACCCC" stroke-width="1.8" d="M-47.7,56.2L-0.5-0.5l47.2,56.7"/>
+		<circle fill="#FACCCC" cx="-0.5" cy="-0.5" r="3"/>
+		<text transform="matrix(1 0 0 1 -28.1421 86.5003)" fill="#010101" font-family="'ArialMT'" font-size="12">&apos;bevel&apos; join</text>
+	</g>
+</g>
+<g transform="translate(0, 250)">
+	<rect x="0.5" y="0.5" fill="none" stroke="#3A53A4" width="451" height="130"/>
+	<g transform="translate(75.6,58.3)">
+		<path fill="none" stroke="#010101" stroke-width="15" stroke-miterlimit="1" d="M-15.5,56.2L-0.5-0.5l5,56.699"/>
+		<path fill="none" stroke="#FACCCC" stroke-width="1.8" d="M-15.5,56.2L-0.5-0.5l5,56.699"/>
+		<circle fill="#FACCCC" cx="-0.5" cy="-0.5" r="3"/>
+	</g>
+	<g transform="translate(226.8,58.3)">
+		<path fill="none" stroke="#010101" stroke-width="15" stroke-miterlimit="5" d="M-10.5,56.2l10-56.699l10,56.699"/>
+		<path fill="none" stroke="#FACCCC" stroke-width="1.8" d="M-10.5,56.2l10-56.699l10,56.699"/>
+		<circle fill="#FACCCC" cx="-0.501" cy="-0.5" r="3"/>
+	</g>
+	<g transform="translate(378,58.3)">
+		<path fill="none" stroke="#010101" stroke-width="15" stroke-miterlimit="6" d="M-5.5,56.2l5-56.699l15,56.699"/>
+		<path fill="none" stroke="#FACCCC" stroke-width="1.8" d="M-5.5,56.2l5-56.699l15,56.699"/>
+		<circle fill="#FACCCC" cx="-0.5" cy="-0.5" r="3"/>
+	</g>
+</g>
+</svg>

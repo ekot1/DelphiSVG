@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"    "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd" [
+	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+
+<svg xmlns:xlink="&ns_xlink;" width="1200" height="400" viewBox="0 0 1200 400">
+	<defs>
+		<rect id="Rectangle" x="100" y="100" width="400" height="200" rx="50" />
+	</defs>
+
+	<rect x="1" y="1" width="1198" height="398" fill="none" stroke="blue" stroke-width="2" />
+	<use xlink:href="#Rectangle" fill="green"/>
+	<g transform="translate(560 175) rotate(-30)">
+		<use xlink:href="#Rectangle" fill="none" stroke="purple" stroke-width="30" />
+	</g>
+</svg>

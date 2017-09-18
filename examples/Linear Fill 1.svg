@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<svg width="505" height="416" viewBox="0 0 505 416" overflow="visible" enable-background="new 0 0 505 416" xml:space="preserve">
+	<g id="Ebene_1">
+		<rect x="74.996" y="156.998" transform="matrix(-0.9416 -0.3368 0.3368 -0.9416 417.1452 558.3594)" fill="#FFFFFF" stroke="#000000" width="364.008" height="172.004"/> 
+		<rect x="64.5" y="31.5" fill="#351FFF" stroke="#FF993F" stroke-width="3" width="250" height="170"/> 
+		<rect x="258.5" y="124.5" opacity="0.38" fill="#BF2200" stroke="#5FFF8F" stroke-width="3" width="124" height="107"/> 
+		<rect x="1.5" y="1.5" fill="none" stroke="#5FFF8F" stroke-width="3" width="502" height="413"/> 
+		<g>
+			<linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="61.5" y1="334" x2="218.5" y2="334">
+				<stop  offset="0" style="stop-color:#FF0000"/>
+				<stop  offset="0.1197" style="stop-color:#FB0104"/>
+				<stop  offset="0.2468" style="stop-color:#EE0410"/>
+				<stop  offset="0.3775" style="stop-color:#D90824"/>
+				<stop  offset="0.5106" style="stop-color:#BB0F40"/>
+				<stop  offset="0.6456" style="stop-color:#951765"/>
+				<stop  offset="0.7822" style="stop-color:#662191"/>
+				<stop  offset="0.9174" style="stop-color:#2F2DC5"/>
+				<stop  offset="1" style="stop-color:#0A35E8"/>
+			</linearGradient>
+
+			<rect x="61.5" y="279.5" opacity="75%" fill="url(#XMLID_2_)" width="157" height="109"/> 
+			<rect x="61.5" y="279.5" opacity="0.5" fill="none" stroke="#00DF12" stroke-width="10" width="157" height="109"/> 
+		</g>
+	</g>
+</svg>
