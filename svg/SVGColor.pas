@@ -20,7 +20,7 @@ unit SVGColor;
 interface
 
 uses
-  Vcl.Graphics;
+  System.UITypes;
 
 type
   TColorRef = record

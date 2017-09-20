@@ -21,9 +21,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.GDIPOBJ, Winapi.GDIPAPI,
-  System.Classes,
+  System.UITypes, System.Classes,
   Xml.XmlIntf,
-  Vcl.Graphics,
   SVGTypes, SVG;
 
 type
