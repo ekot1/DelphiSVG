@@ -30,7 +30,6 @@ package SVGPackage;
 
 requires
   rtl,
-  vcl,
   xmlrtl;
 
 contains

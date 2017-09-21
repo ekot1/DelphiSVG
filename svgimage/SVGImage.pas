@@ -23,12 +23,13 @@ unit SVGImage;
 interface
 
 uses
-  Winapi.Windows, System.SysUtils, System.Classes, Vcl.Controls, Vcl.Graphics,
+  Winapi.Windows, Winapi.GDIPOBJ,
+  System.SysUtils, System.Classes, Vcl.Controls, Vcl.Graphics,
   SVG, SVGImageList;
 
 type
   TSVGImage = class(TGraphicControl)
-  private
+  strict private
     FSVGImage: TSVG;
     FStream: TMemoryStream;
 
@@ -63,7 +64,7 @@ type
     procedure Clear;
     function Empty: Boolean;
     procedure Paint; override;
-    procedure LoadFromFile(const FileName: WideString);
+    procedure LoadFromFile(const FileName: string);
     procedure LoadFromStream(Stream: TStream);
     procedure Assign(Source: TPersistent); override;
     property SVG: TSVG read FSVGImage;
@@ -92,7 +93,7 @@ type
 
 
   TSVGGraphic = class(TGraphic)
-  private
+  strict private
     FSVGImage: TSVG;
     FStream: TMemoryStream;
 
@@ -138,11 +139,44 @@ type
     property FileName: TFileName read FFileName write SetFileName;
   end;
 
+function TGPImageToBitmap(Image: TGPImage): TBitmap;
+
 implementation
 
 uses
   Vcl.Dialogs,
   Winapi.GDIPAPI;
+
+function TGPImageToBitmap(Image: TGPImage): TBitmap;
+var
+  Graphics: TGPGraphics;
+  Bitmap: TBitmap;
+  P: Pointer;
+  W, H: Cardinal;
+begin
+  Bitmap := nil;
+  if Assigned(Image) then
+  begin
+    W := Image.GetWidth;
+    H := Image.GetHeight;
+    if (W > 0) and (H > 0) then
+    begin
+      Bitmap := TBitmap.Create;
+      Bitmap.PixelFormat := pf32Bit;
+      Bitmap.Width := W;
+      Bitmap.Height := H;
+      P := Bitmap.ScanLine[H - 1];
+      FillChar(P^, (W * H) shl 2, 0);
+      Graphics := TGPGraphics.Create(Bitmap.Canvas.Handle);
+      try
+        Graphics.DrawImage(Image, 0, 0);
+      finally
+        Graphics.Free;
+      end;
+    end;
+  end;
+  Result := Bitmap;
+end;
 
 constructor TSVGImage.Create(AOwner: TComponent);
 begin
@@ -265,7 +299,7 @@ begin
   end;
 end;
 
-procedure TSVGImage.LoadFromFile(const FileName: WideString);
+procedure TSVGImage.LoadFromFile(const FileName: string);
 begin
   if csLoading in ComponentState then
     Exit;
