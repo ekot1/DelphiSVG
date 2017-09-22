@@ -40,7 +40,7 @@ uses
   SVGImage;
 
 const
-  CPath = '..\..\examples';
+  CPath = '..\..\..\examples';
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin

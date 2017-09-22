@@ -6,13 +6,13 @@
         <Projects Include="svg\SVGPackage.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="svgimage\SVGImagePackageR.dproj">
+        <Projects Include="vcl\svgimage\SVGImagePackageR.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="svgimage\SVGImagePackageD.dproj">
+        <Projects Include="vcl\svgimage\SVGImagePackageD.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="SvgViewer.dproj">
+        <Projects Include="vcl\SvgViewer.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="fmx\FMXSVGViewer.dproj">
@@ -36,31 +36,31 @@
         <MSBuild Projects="svg\SVGPackage.dproj" Targets="Make"/>
     </Target>
     <Target Name="SVGImagePackageR">
-        <MSBuild Projects="svgimage\SVGImagePackageR.dproj"/>
+        <MSBuild Projects="vcl\svgimage\SVGImagePackageR.dproj"/>
     </Target>
     <Target Name="SVGImagePackageR:Clean">
-        <MSBuild Projects="svgimage\SVGImagePackageR.dproj" Targets="Clean"/>
+        <MSBuild Projects="vcl\svgimage\SVGImagePackageR.dproj" Targets="Clean"/>
     </Target>
     <Target Name="SVGImagePackageR:Make">
-        <MSBuild Projects="svgimage\SVGImagePackageR.dproj" Targets="Make"/>
+        <MSBuild Projects="vcl\svgimage\SVGImagePackageR.dproj" Targets="Make"/>
     </Target>
     <Target Name="SVGImagePackageD">
-        <MSBuild Projects="svgimage\SVGImagePackageD.dproj"/>
+        <MSBuild Projects="vcl\svgimage\SVGImagePackageD.dproj"/>
     </Target>
     <Target Name="SVGImagePackageD:Clean">
-        <MSBuild Projects="svgimage\SVGImagePackageD.dproj" Targets="Clean"/>
+        <MSBuild Projects="vcl\svgimage\SVGImagePackageD.dproj" Targets="Clean"/>
     </Target>
     <Target Name="SVGImagePackageD:Make">
-        <MSBuild Projects="svgimage\SVGImagePackageD.dproj" Targets="Make"/>
+        <MSBuild Projects="vcl\svgimage\SVGImagePackageD.dproj" Targets="Make"/>
     </Target>
     <Target Name="SvgViewer">
-        <MSBuild Projects="SvgViewer.dproj"/>
+        <MSBuild Projects="vcl\SvgViewer.dproj"/>
     </Target>
     <Target Name="SvgViewer:Clean">
-        <MSBuild Projects="SvgViewer.dproj" Targets="Clean"/>
+        <MSBuild Projects="vcl\SvgViewer.dproj" Targets="Clean"/>
     </Target>
     <Target Name="SvgViewer:Make">
-        <MSBuild Projects="SvgViewer.dproj" Targets="Make"/>
+        <MSBuild Projects="vcl\SvgViewer.dproj" Targets="Make"/>
     </Target>
     <Target Name="FMXSVGViewer">
         <MSBuild Projects="fmx\FMXSVGViewer.dproj"/>

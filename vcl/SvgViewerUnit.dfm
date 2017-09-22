@@ -23,9 +23,8 @@ object Form1: TForm1
     Height = 629
     Align = alClient
     OnPaint = PaintBox1Paint
-    ExplicitLeft = -5
-    ExplicitWidth = 537
-    ExplicitHeight = 299
+    ExplicitLeft = -6
+    ExplicitTop = -1
   end
   object Panel1: TPanel
     Left = 707
