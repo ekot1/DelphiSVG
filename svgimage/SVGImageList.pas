@@ -266,7 +266,7 @@ begin
     begin
       Stream.Read(Size, SizeOf(Integer));
       SetLength(Name, Size);
-      Stream.Read(PWideChar(Name)^, Size * SizeOf(WideChar));
+      Stream.Read(PChar(Name)^, Size * SizeOf(Char));
 
       Stream.Read(Size, SizeOf(Integer));
       FStream.CopyFrom(Stream, Size);
@@ -492,7 +492,7 @@ begin
     SVG := FImages[C].SVG;
     Size := Length(Name);
     Stream.Write(Size, SizeOf(Integer));
-    Stream.WriteBuffer(PWideChar(Name)^, Size * SizeOf(WideChar));
+    Stream.WriteBuffer(PChar(Name)^, Size * SizeOf(Char));
 
     SVG.SaveToStream(SVGStream);
     Size := SVGStream.Size;

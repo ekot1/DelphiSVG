@@ -125,7 +125,7 @@ procedure TImageListEditor.AddButtonClick(Sender: TObject);
 var
   C: Integer;
   SVG: TSVG;
-  FileName: WideString;
+  FileName: string;
   Item: TSVGCollectionItem;
 begin
   if OpenPictureDialog1.Execute then
@@ -238,7 +238,7 @@ procedure TImageListEditor.ReplaceButtonClick(Sender: TObject);
 var
   C: Integer;
   SVG: TSVG;
-  FileName: WideString;
+  FileName: string;
   Item: TSVGCollectionItem;
 begin
   if OpenPictureDialog1.Execute then
