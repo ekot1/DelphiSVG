@@ -20,7 +20,7 @@ unit SVGTypes;
 interface
 
 uses
-  System.Math,
+  System.Math, System.Types,
   Winapi.Windows, Winapi.GDIPAPI;
 
 const
@@ -34,21 +34,7 @@ const
 type
   TFloat = single;
 
-  TFPoint = record
-    X, Y: TFloat;
-    constructor Create(const AX: TFloat; const AY: TFloat);
-  end;
-
-  TFRect = record
-    Left, Top,
-    Width, Height: TFloat;
-  end;
-
-  TListOfPoints = array of TFPoint;
-  PListOfPoints = ^TListOfPoints;
-
-  TSingleA = array of Single;
-  PSingleA = ^TSingleA;
+  TListOfPoints = array of TPointF;
 
   TRectarray = packed array of TRect;
   PRectArray = ^TRectArray;
@@ -64,25 +50,19 @@ type
   TGradientUnits = (guObjectBoundingBox, guUserSpaceOnUse);
 
   TBounds = record
-    TopLeft: TFPoint;
-    TopRight: TFPoint;
-    BottomLeft: TFPoint;
-    BottomRight: TFPoint;
+    TopLeft: TPointF;
+    TopRight: TPointF;
+    BottomLeft: TPointF;
+    BottomRight: TPointF;
   end;
 
-function ToGPPoint(const Point: TFPoint): TGPPointF;
+function ToGPPoint(const Point: TPointF): TGPPointF;
 
 function Intersect(const Bounds: TBounds; const Rect: TRect): Boolean;
 
 implementation
 
-constructor TFPoint.Create(const AX: TFloat; const AY: TFloat);
-begin
-  X := AX;
-  Y := AY;
-end;
-
-function ToGPPoint(const Point: TFPoint): TGPPointF;
+function ToGPPoint(const Point: TPointF): TGPPointF;
 begin
   Result := MakePoint(Point.X, Point.Y);
 end;

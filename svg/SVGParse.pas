@@ -20,7 +20,7 @@ unit SVGParse;
 interface
 
 uses
-  System.Classes, System.Math.Vectors,
+  System.Types, System.Classes, System.Math.Vectors,
   SVGTypes;
 
 function ParseAngle(const Angle: string): TFloat;
@@ -37,7 +37,7 @@ function ParseUnit(const S: string): TSVGUnit;
 
 function GetFactor(const SVGUnit: TSVGUnit): TFloat;
 
-function ParseDRect(const S: string): TFRect;
+function ParseDRect(const S: string): TRectF;
 
 function ParseURI(const URI: string): string;
 
@@ -46,7 +46,7 @@ function ParseTransform(const ATransform: string): TMatrix;
 implementation
 
 uses
-  System.SysUtils, System.Math,
+  System.SysUtils, System.Math, System.StrUtils,
   SVGCommon;
 
 function ParseAngle(const Angle: string): TFloat;
@@ -61,7 +61,7 @@ begin
     C := Pos('deg', S);
     if C <> 0 then
     begin
-      S := Copy(S, 1, C - 1);
+      S := LeftStr(S, C - 1);
       if TryStrToTFloat(S, D) then
         Result := DegToRad(D)
       else
@@ -79,7 +79,7 @@ begin
     C := Pos('grad', S);
     if C <> 0 then
     begin
-      S := Copy(S, 1, C - 1);
+      S := LeftStr(S, C - 1);
       if TryStrToTFloat(S, D) then
         Result := GradToRad(D)
       else
@@ -107,7 +107,7 @@ begin
     Exit;
 
   if S[Length(S)] = '%' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 1)) / 100
+    Result := StrToTFloat(LeftStr(S, Length(S) - 1)) / 100
   else
     Result := StrToTFloat(S);
 end;
@@ -248,7 +248,7 @@ begin
   end;
 end;
 
-function ParseDRect(const S: string): TFRect;
+function ParseDRect(const S: string): TRectF;
 var
   SL: TStrings;
 begin

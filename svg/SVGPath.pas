@@ -21,7 +21,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.GDIPOBJ,
-  System.Classes,
+  System.Types, System.Classes,
   SVGTypes, SVG;
 
 type
@@ -32,10 +32,10 @@ type
     FStopX: TFloat;
     FStopY: TFloat;
   protected
-    procedure Assign(SVG: TSVGObject); override;
+    procedure AssignTo(Dest: TPersistent); override;
     function New(Parent: TSVGObject): TSVGObject; override;
   public
-    function GetBounds: TFRect; virtual; abstract;
+    function GetBounds: TRectF; virtual; abstract;
     procedure AddToPath(Path: TGPGraphicsPath); virtual; abstract;
     procedure Read(SL: TStrings; var Position: Integer;
       Previous: TSVGPathElement); virtual;
@@ -54,7 +54,7 @@ type
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
   public
-    function GetBounds: TFRect; override;
+    function GetBounds: TRectF; override;
     procedure AddToPath(Path: TGPGraphicsPath); override;
     procedure Read(SL: TStrings; var Position: Integer;
       Previous: TSVGPathElement); override;
@@ -65,7 +65,7 @@ type
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
   public
-    function GetBounds: TFRect; override;
+    function GetBounds: TRectF; override;
     procedure AddToPath(Path: TGPGraphicsPath); override;
     procedure Read(SL: TStrings; var Position: Integer;
       Previous: TSVGPathElement); override;
@@ -78,10 +78,10 @@ type
     FControl2X: TFloat;
     FControl2Y: TFloat;
   protected
-    procedure Assign(SVG: TSVGObject); override;
+    procedure AssignTo(Dest: TPersistent); override;
     function New(Parent: TSVGObject): TSVGObject; override;
   public
-    function GetBounds: TFRect; override;
+    function GetBounds: TRectF; override;
     procedure AddToPath(Path: TGPGraphicsPath); override;
     procedure Read(SL: TStrings; var Position: Integer;
       Previous: TSVGPathElement); override;
@@ -100,10 +100,10 @@ type
     FLarge: Integer;
     FSweep: Integer;
   protected
-    procedure Assign(SVG: TSVGObject); override;
+    procedure AssignTo(Dest: TPersistent); override;
     function New(Parent: TSVGObject): TSVGObject; override;
   public
-    function GetBounds: TFRect; override;
+    function GetBounds: TRectF; override;
     procedure AddToPath(Path: TGPGraphicsPath); override;
     procedure Read(SL: TStrings; var Position: Integer;
       Previous: TSVGPathElement); override;
@@ -116,11 +116,10 @@ type
   end;
 
   TSVGPathClose = class(TSVGPathElement)
-  private
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
   public
-    function GetBounds: TFRect; override;
+    function GetBounds: TRectF; override;
     procedure AddToPath(Path: TGPGraphicsPath); override;
     procedure Read(SL: TStrings; var Position: Integer;
       Previous: TSVGPathElement); override;
@@ -135,15 +134,15 @@ uses
 
 // TSVGPathElement
 
-procedure TSVGPathElement.Assign(SVG: TSVGObject);
+procedure TSVGPathElement.AssignTo(Dest: TPersistent);
 begin
   inherited;
-  if SVG is TSVGPathElement then
+  if Dest is TSVGPathElement then
   begin
-    FStartX := TSVGPathElement(SVG).FStartX;
-    FStartY := TSVGPathElement(SVG).FStartY;
-    FStopX :=  TSVGPathElement(SVG).FStopX;
-    FStopY :=  TSVGPathElement(SVG).FStopY;
+    TSVGPathElement(Dest).FStartX := FStartX;
+    TSVGPathElement(Dest).FStartY := FStartY;
+    TSVGPathElement(Dest).FStopX :=  FStopX;
+    TSVGPathElement(Dest).FStopY :=  FStopY;
   end;
 end;
 
@@ -172,7 +171,7 @@ end;
 
 // TSVGPathMove
 
-function TSVGPathMove.GetBounds: TFRect;
+function TSVGPathMove.GetBounds: TRectF;
 begin
   Result.Width := 0;
   Result.Height := 0;
@@ -209,7 +208,7 @@ end;
 
 // TSVGPathLine
 
-function TSVGPathLine.GetBounds: TFRect;
+function TSVGPathLine.GetBounds: TRectF;
 begin
   Result.Left := Min(FStartX, FStopX);
   Result.Top := Min(FStartY, FStopY);
@@ -278,19 +277,19 @@ end;
 
 // TSVGPathCurve
 
-procedure TSVGPathCurve.Assign(SVG: TSVGObject);
+procedure TSVGPathCurve.AssignTo(Dest: TPersistent);
 begin
   inherited;
-  if SVG is TSVGPathCurve then
+  if Dest is TSVGPathCurve then
   begin
-    FControl1X := TSVGPathCurve(SVG).FControl1X;
-    FControl1Y := TSVGPathCurve(SVG).FControl1Y;
-    FControl2X := TSVGPathCurve(SVG).FControl2X;
-    FControl2Y := TSVGPathCurve(SVG).FControl2Y;
+    TSVGPathCurve(Dest).FControl1X := FControl1X;
+    TSVGPathCurve(Dest).FControl1Y := FControl1Y;
+    TSVGPathCurve(Dest).FControl2X := FControl2X;
+    TSVGPathCurve(Dest).FControl2Y := FControl2Y;
   end;
 end;
 
-function TSVGPathCurve.GetBounds: TFRect;
+function TSVGPathCurve.GetBounds: TRectF;
 var
   Right, Bottom: TFloat;
 begin
@@ -417,20 +416,20 @@ end;
 
 // TSVGPathEllipticArc
 
-procedure TSVGPathEllipticArc.Assign(SVG: TSVGObject);
+procedure TSVGPathEllipticArc.AssignTo(Dest: TPersistent);
 begin
   inherited;
-  if SVG is TSVGPathEllipticArc then
+  if Dest is TSVGPathEllipticArc then
   begin
-    FRX := TSVGPathEllipticArc(SVG).FRX;
-    FRY := TSVGPathEllipticArc(SVG).FRY;
-    FXRot := TSVGPathEllipticArc(SVG).FXRot;
-    FLarge := TSVGPathEllipticArc(SVG).FLarge;
-    FSweep := TSVGPathEllipticArc(SVG).FSweep;
+    TSVGPathEllipticArc(Dest).FRX := FRX;
+    TSVGPathEllipticArc(Dest).FRY := FRY;
+    TSVGPathEllipticArc(Dest).FXRot := FXRot;
+    TSVGPathEllipticArc(Dest).FLarge := FLarge;
+    TSVGPathEllipticArc(Dest).FSweep := FSweep;
   end;
 end;
 
-function TSVGPathEllipticArc.GetBounds: TFRect;
+function TSVGPathEllipticArc.GetBounds: TRectF;
 begin
   Result.Left := Min(FStartX, FStopX);
   Result.Top := Min(FStartY, FStopY);
@@ -447,22 +446,22 @@ procedure TSVGPathEllipticArc.AddToPath(Path: TGPGraphicsPath);
 var
   R: TGPRectF;
   X1, Y1: TFloat;
-  dx2, dy2: TFloat;
-  angle: TFloat;
+  DX2, DY2: TFloat;
+  Angle: TFloat;
   SinAngle: TFloat;
   CosAngle: TFloat;
-  RX: TFloat;
-  RY: TFloat;
+  LRX: TFloat;
+  LRY: TFloat;
   PRX: TFloat;
   PRY: TFloat;
   PX1: TFloat;
   PY1: TFloat;
-  radiiCheck: TFloat;
+  RadiiCheck: TFloat;
   sign: TFloat;
-  sq: TFloat;
-  coef: TFloat;
-  cx1: TFloat;
-  cy1: TFloat;
+  Sq: TFloat;
+  Coef: TFloat;
+  CX1: TFloat;
+  CY1: TFloat;
   sx2: TFloat;
   sy2: TFloat;
   cx: TFloat;
@@ -473,8 +472,8 @@ var
   vy: TFloat;
   p: TFloat;
   n: TFloat;
-  angleStart: TFloat;
-  angleExtent: TFloat;
+  AngleStart: TFloat;
+  AngleExtent: TFloat;
   ArcPath: TGPGraphicsPath;
   Matrix: TGPMatrix;
   Center: TGPPointF;
@@ -493,62 +492,62 @@ begin
   //
 
   // Compute the half distance between the current and the final point
-  dx2 := (FStartX - FStopX) / 2.0;
-  dy2 := (FStartY - FStopY) / 2.0;
+  DX2 := (FStartX - FStopX) / 2.0;
+  DY2 := (FStartY - FStopY) / 2.0;
 
   // Convert angle from degrees to radians
-  angle := DegToRad(FMod(FXRot, 360.0));
-  cosAngle := cos(angle);
-  sinAngle := sin(angle);
+  Angle := DegToRad(FMod(FXRot, c360));
+  cosAngle := cos(Angle);
+  sinAngle := sin(Angle);
 
   //
   // Step 1 : Compute (x1, y1)
   //
-  x1 := (cosAngle * dx2 + sinAngle * dy2);
-  y1 := (-sinAngle * dx2 + cosAngle * dy2);
+  x1 := (cosAngle * DX2 + sinAngle * DY2);
+  y1 := (-sinAngle * DX2 + cosAngle * DY2);
   // Ensure radii are large enough
-  rx := abs(Frx);
-  ry := abs(Fry);
-  Prx := rx * rx;
-  Pry := ry * ry;
+  LRX := abs(Frx);
+  LRY := abs(Fry);
+  Prx := LRX * LRX;
+  Pry := LRY * LRY;
   Px1 := x1 * x1;
   Py1 := y1 * y1;
 
   // check that radii are large enough
-  radiiCheck := Px1/Prx + Py1/Pry;
-  if (radiiCheck > 1) then
+  RadiiCheck := Px1/Prx + Py1/Pry;
+  if (RadiiCheck > 1) then
   begin
-    rx := sqrt(radiiCheck) * rx;
-    ry := sqrt(radiiCheck) * ry;
-    Prx := rx * rx;
-    Pry := ry * ry;
+    LRX := sqrt(RadiiCheck) * LRX;
+    LRY := sqrt(RadiiCheck) * LRY;
+    Prx := LRX * LRX;
+    Pry := LRY * LRY;
   end;
 
   //
   // Step 2 : Compute (cx1, cy1)
   //
   sign := IfThen(FLarge = FSweep, -1, 1);
-  sq := ((Prx*Pry)-(Prx*Py1)-(Pry*Px1)) / ((Prx*Py1)+(Pry*Px1));
-  sq := IfThen(sq < 0, 0.0, sq);
-  coef := (sign * sqrt(sq));
-  cx1 := coef * ((rx * y1) / ry);
-  cy1 := coef * -((ry * x1) / rx);
+  Sq := ((Prx * Pry)-(Prx * Py1)-(Pry * Px1)) / ((Prx * Py1)+(Pry * Px1));
+  Sq := IfThen(Sq < 0, 0.0, Sq);
+  Coef := (sign * sqrt(Sq));
+  CX1 := Coef * ((LRX * y1) / LRY);
+  CY1 := Coef * -((LRY * x1) / LRX);
 
   //
   // Step 3 : Compute (cx, cy) from (cx1, cy1)
   //
   sx2 := (FStartX + FStopX) / 2.0;
   sy2 := (FStartY + FStopY) / 2.0;
-  cx := sx2 + (cosAngle * cx1 - sinAngle * cy1);
-  cy := sy2 + (sinAngle * cx1 + cosAngle * cy1);
+  cx := sx2 + (cosAngle * CX1 - sinAngle * CY1);
+  cy := sy2 + (sinAngle * CX1 + cosAngle * CY1);
 
   //
   // Step 4 : Compute the angleStart (angle1) and the angleExtent (dangle)
   //
-  ux := (x1 - cx1) / rx;
-  uy := (y1 - cy1) / ry;
-  vx := (-x1 - cx1) / rx;
-  vy := (-y1 - cy1) / ry;
+  ux := (x1 - CX1) / LRX;
+  uy := (y1 - CY1) / LRY;
+  vx := (-x1 - CX1) / LRX;
+  vy := (-y1 - CY1) / LRY;
 
   // Compute the angle start
   n := (ux * ux) + (uy * uy);
@@ -556,32 +555,32 @@ begin
 //  n := sqrt((ux * ux) + (uy * uy));
   p := ux; // (1 * ux) + (0 * uy)
   sign := IfThen(uy < 0, -1, 1);
-  angleStart := RadToDeg(sign * arccos(p / n));
+  AngleStart := RadToDeg(sign * arccos(p / n));
 
   // Compute the angle extent
   n := sqrt((ux * ux + uy * uy) * (vx * vx + vy * vy));
   p := ux * vx + uy * vy;
   sign := IfThen(ux * vy - uy * vx < 0, -1, 1);
-  angleExtent := RadToDeg(sign * arccos(p / n));
-  if ((Fsweep = 0) and (angleExtent > 0)) then
+  AngleExtent := RadToDeg(sign * arccos(p / n));
+  if ((Fsweep = 0) and (AngleExtent > 0)) then
   begin
-    angleExtent := angleExtent - 360;
-  end else if ((FSweep = 1) and (angleExtent < 0)) then
+    AngleExtent := AngleExtent - c360;
+  end else if ((FSweep = 1) and (AngleExtent < 0)) then
   begin
-    angleExtent := angleExtent + 360;
+    AngleExtent := AngleExtent + c360;
   end;
 
-  angleStart := FMod(angleStart, 360.0);
-  angleExtent := FMod(angleExtent, 360.0);
+  AngleStart := FMod(AngleStart, c360);
+  AngleExtent := FMod(AngleExtent, c360);
 
-  R.x := cx - rx;
-  R.y := cy - ry;
-  R.width := rx * 2.0;
-  R.height := ry * 2.0;
+  R.x := cx - LRX;
+  R.y := cy - LRY;
+  R.width := LRX * 2.0;
+  R.height := LRY * 2.0;
 
   ArcPath := TGPGraphicsPath.Create;
   try
-    ArcPath.AddArc(R, angleStart, AngleExtent);
+    ArcPath.AddArc(R, AngleStart, AngleExtent);
     Matrix := TGPMatrix.Create;
     try
       Center.X := cx;
@@ -634,7 +633,7 @@ end;
 
 // TSVGPathClose
 
-function TSVGPathClose.GetBounds: TFRect;
+function TSVGPathClose.GetBounds: TRectF;
 begin
   Result.Width := 0;
   Result.Height := 0;

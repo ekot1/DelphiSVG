@@ -77,10 +77,10 @@ type
       const Char: WideChar; const Font: TGPFont; const Origin: TGPPointF;
       const Format: TGPStringFormat; const Brush: TGPBrush): TStatus;
 
-    procedure AddUnderline(const Path: TGPGraphicsPath; const Text: WideString;
+    procedure AddUnderline(const Path: TGPGraphicsPath;
       const Left, Top, Width: Single; const Font: TGPFont);
 
-    procedure AddStrikeOut(const Path: TGPGraphicsPath; const Text: WideString;
+    procedure AddStrikeOut(const Path: TGPGraphicsPath;
       const Left, Top, Width: Single; const Font: TGPFont);
   public
     constructor Create;
@@ -169,7 +169,7 @@ begin
 end;
 
 procedure TGPKerningText.AddStrikeOut(const Path: TGPGraphicsPath;
-  const Text: WideString; const Left, Top, Width: Single; const Font: TGPFont);
+  const Left, Top, Width: Single; const Font: TGPFont);
 var
   YPos: Double;
   Height: Double;
@@ -369,7 +369,6 @@ procedure TGPKerningText.Prepare(const Family: TGPFontFamily; Style: Integer;
   const Size: Single; const Format: TGPStringFormat);
 begin
   FGPFont.Free;
-  FGPFont := nil;
   FGPFont := TGPFont.Create(Family, Size, Style);
   PrepareKerning(FGPFont);
 end;
@@ -507,37 +506,40 @@ begin
   Style := Style and not FontStyleUnderline and not FontStyleStrikeout;
 
   Font := TGPFont.Create(Family, Size, Style);
-  PrepareKerning(Font);
-
-  X := Origin.X;
-  if Underline or StrikeOut then
-    Width := MeasureText(Text, Font, DistanceFactor, KerningFactor)
-  else
-    Width := 0;
-
-  if StrikeOut then
-    AddStrikeOut(SPath, Text, X, Origin.Y, Width, Font);
-
   try
-    P1 := PWideChar(Text);
-    while (P1^ <> #0) do
-    begin
-      Status := AddGlyphToPath(Path, P1^, Family, Style, Size, Origin, Format);
-      if Status <> Ok then
-        Break;
-      P2 := P1 + 1;
-      Origin.X := Origin.X + GetCellWidth(Word(P1^), Word(P2^),
-        DistanceFactor, KerningFactor);
-      Inc(P1);
+    PrepareKerning(Font);
+
+    X := Origin.X;
+    if Underline or StrikeOut then
+      Width := MeasureText(Text, Font, DistanceFactor, KerningFactor)
+    else
+      Width := 0;
+
+    if StrikeOut then
+      AddStrikeOut(SPath, X, Origin.Y, Width, Font);
+
+    try
+      P1 := PWideChar(Text);
+      while (P1^ <> #0) do
+      begin
+        Status := AddGlyphToPath(Path, P1^, Family, Style, Size, Origin, Format);
+        if Status <> Ok then
+          Break;
+        P2 := P1 + 1;
+        Origin.X := Origin.X + GetCellWidth(Word(P1^), Word(P2^),
+          DistanceFactor, KerningFactor);
+        Inc(P1);
+      end;
+    finally
+      UnprepareDC;
     end;
+
+    if Underline then
+      AddUnderline(UPath, X, Origin.Y, Width, Font);
   finally
-    UnprepareDC;
+    Font.Free;
   end;
 
-  if Underline then
-    AddUnderline(UPath, Text, X, Origin.Y, Width, Font);
-
-  Font.Free;
   Result := Status;
 end;
 
@@ -555,7 +557,7 @@ begin
 end;
 
 procedure TGPKerningText.AddUnderline(const Path: TGPGraphicsPath;
-  const Text: WideString; const Left, Top, Width: Single; const Font: TGPFont);
+  const Left, Top, Width: Single; const Font: TGPFont);
 var
   YPos: Double;
   Height: Double;
@@ -595,7 +597,7 @@ procedure TGPKerningText.UnprepareKerning;
 begin
   SetLength(FKerningPairs, 0);
   FPairCount := 0;
-  ClearKerningList
+  ClearKerningList;
 end;
 
 initialization

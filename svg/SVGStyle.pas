@@ -20,21 +20,21 @@ unit SVGStyle;
 interface
 
 uses
-  System.Classes;
+  System.Classes, System.Contnrs;
 
 type
   TStyle = class(TObject)
   strict private
     FValues: TStrings;
     function GetCount: Integer;
-    procedure Put(const Key: string; const Value: string);
-    function Get(const Key: string): string;
+    procedure PutValues(const Key: string; const Value: string);
+    function GetValues(const Key: string): string;
 
-    procedure PutValue(Index: Integer; const Value: string);
-    function GetValue(Index: Integer): string;
+    procedure PutValuesByNum(const Index: Integer; const Value: string);
+    function GetValuesByNum(const Index: Integer): string;
 
-    procedure PutKey(Index: Integer; const Key: string);
-    function GetKey(Index: Integer): string;
+    procedure PutKey(const Index: Integer; const Key: string);
+    function GetKey(const Index: Integer): string;
 
     function Dequote(const Value: string): string;
   private
@@ -52,18 +52,18 @@ type
     function Remove(const Key: string): Integer;
 
     property Count: Integer read GetCount;
-    property Values[const Key: string]: string read Get write Put; default;
-    property ValuesByNum[Index: Integer]: string read GetValue write PutValue;
-    property Keys[Index: Integer]: string read GetKey write PutKey;
+    property Values[const Key: string]: string read GetValues write PutValues; default;
+    property ValuesByNum[const Index: Integer]: string read GetValuesByNum write PutValuesByNum;
+    property Keys[const Index: Integer]: string read GetKey write PutKey;
   end;
 
   TStyleList = class(TObject)
   strict private
-    FList: TList;
+    FList: TObjectList;
 
     function GetCount: Integer;
-    function Get(Index: Integer): TStyle;
-    procedure Put(Index: Integer; Style: TStyle);
+    function GetStyle(const Index: Integer): TStyle;
+    procedure PutStyle(const Index: Integer; Style: TStyle);
   public
     constructor Create;
     destructor Destroy; override;
@@ -71,8 +71,8 @@ type
     function Clone: TStyleList;
 
     procedure Delete(Index: Integer);
-    function Remove(Style: TStyle): Integer;
-    function Add(Style: TStyle): Integer; overload;
+    function Remove(const Style: TStyle): Integer;
+    function Add(const AStyle: TStyle): Integer; overload;
     function Add(const Name, Values: string): Integer; overload;
     function Add(const AStyle: string): Integer; overload;
 
@@ -81,9 +81,9 @@ type
     procedure Exchange(Index1, Index2: Integer);
     procedure Move(CurIndex, NewIndex: Integer);
     function IndexOf(Style: TStyle): Integer;
-    function GetStyle(const Name: string): TStyle;
+    function GetStyleByName(const Name: string): TStyle;
 
-    property Style[Index: Integer]: TStyle read Get write Put; default;
+    property Style[const Index: Integer]: TStyle read GetStyle write PutStyle; default;
     property Count: Integer read GetCount;
   end;
 
@@ -92,7 +92,7 @@ implementation
 uses
   System.SysUtils, System.StrUtils;
 
-// TStyle
+{$REGION 'TStyle'}
 
 constructor TStyle.Create;
 begin
@@ -125,29 +125,29 @@ begin
   Result := FValues.Count;
 end;
 
-procedure TStyle.Put(const Key: string; const Value: string);
+procedure TStyle.PutValues(const Key: string; const Value: string);
 var
   Index: Integer;
 begin
   Index := IndexOf(Key);
   if Index > 0 then
-    PutValue(Index, Value)
+    PutValuesByNum(Index, Value)
   else
     AddStyle(Key, Value);
 end;
 
-function TStyle.Get(const Key: string): string;
+function TStyle.GetValues(const Key: string): string;
 begin
-  Result := GetValue(IndexOf(Key));
+  Result := GetValuesByNum(IndexOf(Key));
 end;
 
-procedure TStyle.PutValue(Index: Integer; const Value: string);
+procedure TStyle.PutValuesByNum(const Index: Integer; const Value: string);
 begin
   if (Index >= 0) and (Index < FValues.Count) then
     FValues.ValueFromIndex[Index] := DeQuote(Value);
 end;
 
-function TStyle.GetValue(Index: Integer): string;
+function TStyle.GetValuesByNum(const Index: Integer): string;
 begin
   if (Index >= 0) and (Index < FValues.Count) then
     Result := FValues.ValueFromIndex[Index]
@@ -155,13 +155,13 @@ begin
     Result := '';
 end;
 
-procedure TStyle.PutKey(Index: Integer; const Key: string);
+procedure TStyle.PutKey(const Index: Integer; const Key: string);
 begin
   if (Index >= 0) and (Index < FValues.Count) then
     FValues[Index] := Key + FValues.NameValueSeparator + FValues.ValueFromIndex[Index];
 end;
 
-function TStyle.GetKey(Index: Integer): string;
+function TStyle.GetKey(const Index: Integer): string;
 begin
   if (Index >= 0) and (Index < FValues.Count) then
     Result := FValues.Names[Index]
@@ -210,7 +210,7 @@ begin
       if C = -1 then
         FValues.Add(Key + FValues.NameValueSeparator + DeQuote(Value))
       else
-        PutValue(C, Value);
+        PutValuesByNum(C, Value);
     end;
   end;
 end;
@@ -221,7 +221,7 @@ begin
   if Result = -1 then
     Result := FValues.Add(Key + FValues.NameValueSeparator + DeQuote(Value))
   else
-    PutValue(Result, Value);
+    PutValuesByNum(Result, Value);
 end;
 
 function TStyle.IndexOf(const Key: string): Integer;
@@ -243,13 +243,13 @@ begin
   Result := IndexOf(Key);
   Delete(Result);
 end;
+{$ENDREGION}
 
-// TStyleList
-
+{$REGION 'TStyleList'}
 constructor TStyleList.Create;
 begin
   inherited;
-  FList := TList.Create;
+  FList := TObjectList.Create(False);
 end;
 
 destructor TStyleList.Destroy;
@@ -274,7 +274,7 @@ var
 begin
   Result := TStyleList.Create;
   for C := 0 to FList.Count - 1 do
-    Result.Add(Get(C).Clone);
+    Result.Add(GetStyle(C).Clone);
 end;
 
 function TStyleList.GetCount: Integer;
@@ -282,22 +282,19 @@ begin
   Result := FList.Count;
 end;
 
-function TStyleList.Get(Index: Integer): TStyle;
+function TStyleList.GetStyle(const Index: Integer): TStyle;
 begin
   if (Index >= 0) and (Index < FList.Count) then
-    Result := FList[Index]
+    Result := TStyle(FList[Index])
   else
     Result := nil;
 end;
 
-procedure TStyleList.Put(Index: Integer; Style: TStyle);
+procedure TStyleList.PutStyle(const Index: Integer; Style: TStyle);
 begin
   if (Index >= 0) and (Index < FList.Count) then
   begin
-    try
-      TStyle(FList[Index]).Free;
-    except
-    end;
+    FList[Index].Free;
     FList[Index] := Style;
   end;
 end;
@@ -306,20 +303,20 @@ procedure TStyleList.Delete(Index: Integer);
 begin
   if (Index >= 0) and (Index < FList.Count) then
   begin
-    TStyle(FList[Index]).Free;
+    FList[Index].Free;
     FList.Delete(Index);
   end;
 end;
 
-function TStyleList.Remove(Style: TStyle): Integer;
+function TStyleList.Remove(const Style: TStyle): Integer;
 begin
   Result := IndexOf(Style);
   Delete(Result);
 end;
 
-function TStyleList.Add(Style: TStyle): Integer;
+function TStyleList.Add(const AStyle: TStyle): Integer;
 begin
-  Result := FList.Add(Style);
+  Result := FList.Add(AStyle);
 end;
 
 function TStyleList.Add(const Name, Values: string): Integer;
@@ -335,24 +332,29 @@ end;
 function TStyleList.Add(const AStyle: string): Integer;
 var
   Name: string;
-  Style: string;
+  StyleStr: string;
   Values: string;
-  C, D: Integer;
+  C: Integer;
+  D: Integer;
 begin
   Result := -1;
-  Style := Trim(AStyle);
-  for C := 1 to Length(Style) do
-    if Style[C] = '{' then
+  StyleStr := Trim(AStyle);
+  for C := Low(StyleStr) to High(StyleStr) do
+  begin
+    if StyleStr[C] = '{' then
     begin
-      for D := Length(Style) downto C + 1 do
-        if Style[D] = '}' then
+      for D := High(StyleStr) downto C + 1 do
+      begin
+        if StyleStr[D] = '}' then
         begin
-          Name := Trim(Copy(Style, 1, C - 1));
+          Name := Trim(Copy(StyleStr, 1, C - 1));
 
-          Values := Copy(Style, C + 1, D - C - 1);
+          Values := Copy(StyleStr, C + 1, D - C - 1);
           Result := Add(Name, Values);
         end;
+      end;
     end;
+  end;
 end;
 
 procedure TStyleList.Insert(Index: Integer; Style: TStyle);
@@ -393,7 +395,7 @@ begin
   Result := FList.IndexOf(Style);
 end;
 
-function TStyleList.GetStyle(const Name: string): TStyle;
+function TStyleList.GetStyleByName(const Name: string): TStyle;
 var
   C: Integer;
 begin
@@ -406,6 +408,6 @@ begin
 
   Result := nil;
 end;
-
+{$ENDREGION}
 
 end.

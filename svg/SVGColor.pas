@@ -137,7 +137,7 @@ begin
   Result := Winapi.Windows.RGB(R, G, B);
 end;
 
-function CharToInt(const Ch: WideChar): Integer;
+function CharToInt(const Ch: Char): Integer;
 begin
   Result := Ord(Ch);
   if (Result > 47) and (Result < 58) then

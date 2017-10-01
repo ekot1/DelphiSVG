@@ -40,7 +40,7 @@ type
 
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
-    procedure Assign(SVG: TSVGObject); override;
+    procedure AssignTo(Dest: TPersistent); override;
   public
     procedure ReadIn(const Node: IXMLNode); override;
     procedure PaintToGraphics(Graphics: TGPGraphics); override;
@@ -81,7 +81,7 @@ type
     FY2: TFloat;
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
-    procedure Assign(SVG: TSVGObject); override;
+    procedure AssignTo(Dest: TPersistent); override;
   public
     procedure ReadIn(const Node: IXMLNode); override;
     function GetBrush(Alpha: Byte; const DestObject: TSVGBasic): TGPBrush; override;
@@ -101,7 +101,7 @@ type
     FFY: TFloat;
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
-    procedure Assign(SVG: TSVGObject); override;
+    procedure AssignTo(Dest: TPersistent); override;
   public
     procedure Clear; override;
     procedure ReadIn(const Node: IXMLNode); override;
@@ -157,13 +157,13 @@ begin
     FOpacity := 1;
 end;
 
-procedure TSVGStop.Assign(SVG: TSVGObject);
+procedure TSVGStop.AssignTo(Dest: TPersistent);
 begin
   inherited;
-  if SVG is TSVGStop then
+  if Dest is TSVGStop then
   begin
-    FStop := TSVGStop(SVG).FStop;
-    FStopColor := TSVGStop(SVG).FStopColor;
+    TSVGStop(Dest).FStop := FStop;
+    TSVGStop(Dest).FStopColor := FStopColor;
   end;
 end;
 
@@ -246,15 +246,15 @@ begin
   PureMatrix := Matrix;
 end;
 
-procedure TSVGLinearGradient.Assign(SVG: TSVGObject);
+procedure TSVGLinearGradient.AssignTo(Dest: TPersistent);
 begin
   inherited;
-  if SVG is TSVGLinearGradient then
+  if Dest is TSVGLinearGradient then
   begin
-    FX1 := TSVGLinearGradient(SVG).FX1;
-    FY1 := TSVGLinearGradient(SVG).FY1;
-    FX2 := TSVGLinearGradient(SVG).FX2;
-    FY2 := TSVGLinearGradient(SVG).FY2;
+    TSVGLinearGradient(Dest).FX1 := FX1;
+    TSVGLinearGradient(Dest).FY1 := FY1;
+    TSVGLinearGradient(Dest).FX2 := FX2;
+    TSVGLinearGradient(Dest).FY2 := FY2;
   end;
 end;
 
@@ -289,16 +289,16 @@ end;
 
 // TSVGRadialGradient
 
-procedure TSVGRadialGradient.Assign(SVG: TSVGObject);
+procedure TSVGRadialGradient.AssignTo(Dest: TPersistent);
 begin
   inherited;
-  if SVG is TSVGRadialGradient then
+  if Dest is TSVGRadialGradient then
   begin
-    FCX := TSVGRadialGradient(SVG).FCX;
-    FCY := TSVGRadialGradient(SVG).FCY;
-    FFX := TSVGRadialGradient(SVG).FFX;
-    FFY := TSVGRadialGradient(SVG).FFY;
-    FR := TSVGRadialGradient(SVG).FR;
+    TSVGRadialGradient(Dest).FCX := FCX;
+    TSVGRadialGradient(Dest).FCY := FCY;
+    TSVGRadialGradient(Dest).FFX := FFX;
+    TSVGRadialGradient(Dest).FFY := FFY;
+    TSVGRadialGradient(Dest).FR := FR;
   end;
 end;
 
