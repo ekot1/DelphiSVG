@@ -231,7 +231,8 @@ type
   TSVG = class(TSVGBasic)
   strict private
     FRootBounds: TGPRectF;
-    FDX, FDY: TFloat;
+    FDX: TFloat;
+    FDY: TFloat;
     FInitialMatrix: TMatrix;
     FSource: string;
     FAngle: TFloat;
@@ -276,7 +277,7 @@ type
       Left, Top, Width, Height: TFloat): IXMLNode;
 
     procedure SetBounds(const Bounds: TGPRectF);
-    procedure Scale(DX: TFloat; DY: TFloat = -1);
+    procedure Scale(const ADX: TFloat; ADY: TFloat = -1);
     procedure PaintTo(DC: HDC; Bounds: TGPRectF;
       Rects: PRectArray; RectCount: Integer); overload;
     procedure PaintTo(MetaFile: TGPMetaFile; Bounds: TGPRectF;
@@ -824,45 +825,47 @@ var
 begin
   List := TList.Create;
 
-  SVG := Self;
+  try
+    SVG := Self;
 
-  while Assigned(SVG) do
-  begin
-    List.Insert(0, SVG);
-    SVG := SVG.FParent;
-  end;
-
-  FillChar(CompleteMatrix, SizeOf(CompleteMatrix), 0);
-  FillChar(LMatrix, SizeOf(LMatrix), 0);
-  for C := 0 to List.Count - 1 do
-  begin
-    SVG := TSVGMatrix(List[C]);
-    if (SVG is TSVGMatrix) then
+    while Assigned(SVG) do
     begin
-      if SVG is TSVG then
-        NewMatrix := TSVG(SVG).RootMatrix
-      else
-        NewMatrix := TSVGMatrix(SVG).FPureMatrix;
+      List.Insert(0, SVG);
+      SVG := SVG.FParent;
+    end;
 
-      if NewMatrix.m33 = 1 then
+    FillChar(CompleteMatrix, SizeOf(CompleteMatrix), 0);
+    FillChar(LMatrix, SizeOf(LMatrix), 0);
+    for C := 0 to List.Count - 1 do
+    begin
+      SVG := TSVGMatrix(List[C]);
+      if (SVG is TSVGMatrix) then
       begin
-        if CompleteMatrix.m33 = 0 then
-          CompleteMatrix := NewMatrix
+        if SVG is TSVG then
+          NewMatrix := TSVG(SVG).RootMatrix
         else
-          CompleteMatrix := CompleteMatrix * NewMatrix;
+          NewMatrix := TSVGMatrix(SVG).FPureMatrix;
 
-        if not (SVG is TSVG) then
+        if NewMatrix.m33 = 1 then
         begin
-          if LMatrix.m33 = 0 then
-            LMatrix := NewMatrix
+          if CompleteMatrix.m33 = 0 then
+            CompleteMatrix := NewMatrix
           else
-            LMatrix := LMatrix * NewMatrix;
+            CompleteMatrix := CompleteMatrix * NewMatrix;
+
+          if not (SVG is TSVG) then
+          begin
+            if LMatrix.m33 = 0 then
+              LMatrix := NewMatrix
+            else
+              LMatrix := LMatrix * NewMatrix;
+          end;
         end;
       end;
     end;
+  finally
+    List.Free;
   end;
-
-  List.Free;
 
   FCompleteCalculatedMatrix := CompleteMatrix;
   FCalculatedMatrix := LMatrix;
@@ -898,16 +901,12 @@ var
 begin
   if FCalculatedMatrix.m33 = 1 then
   begin
-    TGP := GetGPMatrix(FCalculatedMatrix);
-    try
-      Point.X := P.X;
-      Point.Y := P.Y;
-      TGP.TransformPoints(PGPPointF(@Point));
-    finally
-      TGP.Free;
-    end;
+    Result := P * FCalculatedMatrix;
+  end
+  else
+  begin
+    Result := P;
   end;
-  Result := P;
 end;
 
 function TSVGMatrix.Transform(const X, Y: TFloat): TPointF;
@@ -1002,8 +1001,11 @@ begin
         if Assigned(ClipRoot) then
         begin
           TGP := GetGPMatrix(ClipRoot.Matrix);
-          Graphics.SetTransform(TGP);
-          TGP.Free;
+          try
+            Graphics.SetTransform(TGP);
+          finally
+            TGP.Free;
+          end;
         end;
       end;
       Graphics.SetClip(FClipPath);
@@ -1185,9 +1187,6 @@ begin
 end;
 
 procedure TSVGBasic.ReadStyle(Style: TStyle);
-var
-  Value: string;
-  SL: TstringList;
 
   procedure ConstructFont;
   var
@@ -1292,6 +1291,9 @@ var
     FFontName := FN;
   end;
 
+var
+  Value: string;
+  SL: TStringList;
 begin
   Value := Style.Values['stroke-width'];
   if Value <> '' then
@@ -1376,32 +1378,34 @@ begin
   Value := Style['text-decoration'];
   if Value <> '' then
   begin
-    SL := TstringList.Create;
-    SL.Delimiter := ' ';
-    SL.DelimitedText := Value;
+    SL := TStringList.Create;
+    try
+      SL.Delimiter := ' ';
+      SL.DelimitedText := Value;
 
-    if SL.IndexOf('underline') > -1 then
-    begin
-      Exclude(FTextDecoration, tdInherit);
-      Include(FTextDecoration, tdUnderLine);
+      if SL.IndexOf('underline') > -1 then
+      begin
+        Exclude(FTextDecoration, tdInherit);
+        Include(FTextDecoration, tdUnderLine);
+      end;
+
+      if SL.IndexOf('overline') > -1 then
+      begin
+        Exclude(FTextDecoration, tdInherit);
+        Include(FTextDecoration, tdOverLine);
+      end;
+
+      if SL.IndexOf('line-through') > -1 then
+      begin
+        Exclude(FTextDecoration, tdInherit);
+        Include(FTextDecoration, tdStrikeOut);
+      end;
+
+      if SL.IndexOf('none') > -1 then
+        FTextDecoration := [];
+    finally
+      SL.Free;
     end;
-
-    if SL.IndexOf('overline') > -1 then
-    begin
-      Exclude(FTextDecoration, tdInherit);
-      Include(FTextDecoration, tdOverLine);
-    end;
-
-    if SL.IndexOf('line-through') > -1 then
-    begin
-      Exclude(FTextDecoration, tdInherit);
-      Include(FTextDecoration, tdStrikeOut);
-    end;
-
-    if SL.IndexOf('none') > -1 then
-      FTextDecoration := [];
-
-    SL.Free;
   end;
 
   Value := Style['font-style'];
@@ -1420,73 +1424,96 @@ var
   C: Integer;
   SVG: TSVGObject;
   LRoot: TSVG;
+  NodeName: string;
 begin
   for C := 0 to Node.ChildNodes.count - 1 do
   begin
     SVG := nil;
 
-    if Node.childNodes[C].nodeName = 'g' then
+    NodeName := Node.childNodes[C].nodeName;
+
+    if NodeName = 'g' then
+    begin
       SVG := TSVGContainer.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'switch' then
+    end
+    else if NodeName = 'switch' then
+    begin
       SVG := TSVGSwitch.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'defs' then
+    end
+    else if NodeName = 'defs' then
+    begin
       SVG := TSVGDefs.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'use' then
+    end
+    else if NodeName = 'use' then
+    begin
       SVG := TSVGUse.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'rect' then
+    end
+    else if NodeName = 'rect' then
+    begin
       SVG := TSVGRect.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'line' then
+    end
+    else if NodeName = 'line' then
+    begin
       SVG := TSVGLine.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'polyline' then
+    end
+    else if NodeName = 'polyline' then
+    begin
       SVG := TSVGPolyLine.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'polygon' then
+    end
+    else if NodeName = 'polygon' then
+    begin
       SVG := TSVGPolygon.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'circle' then
+    end
+    else if NodeName = 'circle' then
+    begin
       SVG := TSVGEllipse.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'ellipse' then
+    end
+    else if NodeName = 'ellipse' then
+    begin
       SVG := TSVGEllipse.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'path' then
+    end
+    else if NodeName = 'path' then
+    begin
       SVG := TSVGPath.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'image' then
+    end
+    else if NodeName = 'image' then
+    begin
       SVG := TSVGImage.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'text' then
+    end
+    else if NodeName = 'text' then
+    begin
       SVG := TSVGText.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'tspan' then
+    end
+    else if NodeName = 'tspan' then
+    begin
       SVG := TSVGTSpan.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'textPath' then
+    end
+    else if NodeName = 'textPath' then
+    begin
       SVG := TSVGTextPath.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'clipPath' then
+    end
+    else if NodeName = 'clipPath' then
+    begin
       SVG := TSVGClipPath.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'linearGradient' then
+    end
+    else if NodeName = 'linearGradient' then
+    begin
       SVG := TSVGLinearGradient.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'radialGradient' then
-      SVG := TSVGRadialGradient.Create(Self);
-
-    if Node.childNodes[C].nodeName = 'style' then
+    end
+    else if NodeName = 'radialGradient' then
+    begin
+      SVG := TSVGRadialGradient.Create(Self)
+    end
+    else if NodeName = 'style' then
     begin
       LRoot := GetRoot;
       LRoot.ReadStyles(Node.childNodes[C]);
     end;
 
     if Assigned(SVG) then
+    begin
       SVG.ReadIn(Node.childNodes[C]);
+    end;
   end;
 end;
 
@@ -2109,16 +2136,18 @@ begin
   end;
 end;
 
-procedure TSVG.Scale(DX: TFloat; DY: TFloat = -1);
+procedure TSVG.Scale(const ADX: TFloat; ADY: TFloat = -1);
 begin
-  if DY < 0 then
-    DY := DX;
+  if ADY < 0 then
+  begin
+    ADY := ADX;
+  end;
 
-  if SameValue(FDX, DX) and SameValue(FDY, DY) then
-    Exit;
-
-  FDX := DX;
-  FDY := DY;
+  if not (SameValue(FDX, ADX) and SameValue(FDY, ADY)) then
+  begin
+    FDX := ADX;
+    FDY := ADY;
+  end;
 end;
 
 procedure TSVG.PaintTo(DC: HDC; Bounds: TGPRectF;
