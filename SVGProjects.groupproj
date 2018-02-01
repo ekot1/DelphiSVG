@@ -18,6 +18,9 @@
         <Projects Include="fmx\FMXSVGViewer.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="fmx\FMXSVGImage.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -71,14 +74,23 @@
     <Target Name="FMXSVGViewer:Make">
         <MSBuild Projects="fmx\FMXSVGViewer.dproj" Targets="Make"/>
     </Target>
+    <Target Name="FMXSVGImage">
+        <MSBuild Projects="fmx\FMXSVGImage.dproj"/>
+    </Target>
+    <Target Name="FMXSVGImage:Clean">
+        <MSBuild Projects="fmx\FMXSVGImage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXSVGImage:Make">
+        <MSBuild Projects="fmx\FMXSVGImage.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="SVGPackage;SVGImagePackageR;SVGImagePackageD;SvgViewer;FMXSVGViewer"/>
+        <CallTarget Targets="SVGPackage;SVGImagePackageR;SVGImagePackageD;SvgViewer;FMXSVGViewer;FMXSVGImage"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="SVGPackage:Clean;SVGImagePackageR:Clean;SVGImagePackageD:Clean;SvgViewer:Clean;FMXSVGViewer:Clean"/>
+        <CallTarget Targets="SVGPackage:Clean;SVGImagePackageR:Clean;SVGImagePackageD:Clean;SvgViewer:Clean;FMXSVGViewer:Clean;FMXSVGImage:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="SVGPackage:Make;SVGImagePackageR:Make;SVGImagePackageD:Make;SvgViewer:Make;FMXSVGViewer:Make"/>
+        <CallTarget Targets="SVGPackage:Make;SVGImagePackageR:Make;SVGImagePackageD:Make;SvgViewer:Make;FMXSVGViewer:Make;FMXSVGImage:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
