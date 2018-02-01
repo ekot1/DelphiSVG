@@ -1,3 +1,6 @@
+// Warning!
+// this currently does not work as of Delphi 10.2.2 because of following bug
+// https://quality.embarcadero.com/browse/RSP-19170
 unit BitmapCodecSVG;
 
 interface
