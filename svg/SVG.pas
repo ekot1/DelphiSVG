@@ -140,6 +140,7 @@ type
     FY: TFloat;
     FWidth: TFloat;
     FHeight: TFloat;
+    FStyleChanged: Boolean;
 
     function IsFontAvailable: Boolean;
     procedure ReadChildren(const Node: IXMLNode); virtual;
@@ -165,6 +166,8 @@ type
     function GetFontStyle: Integer;
     function GetTextDecoration: TTextDecoration;
     procedure ParseFontWeight(const S: string);
+    procedure UpdateStyle;
+    procedure OnStyleChanged(Sender: TObject);
   protected
     FRX: TFloat;
     FRY: TFloat;
@@ -524,7 +527,9 @@ constructor TSVGObject.Create(Parent: TSVGObject);
 begin
   Create;
   if Assigned(Parent) then
+  begin
     Parent.Add(Self);
+  end;
 end;
 
 destructor TSVGObject.Destroy;
@@ -921,14 +926,13 @@ begin
   inherited;
   FPath := nil;
   SetLength(FStrokeDashArray, 0);
-
+  FStyle.OnChange := OnStyleChanged;
   FClipPath := nil;
 end;
 
 procedure TSVGBasic.BeforePaint(const Graphics: TGPGraphics;
   const Brush: TGPBrush; const Pen: TGPPen);
 begin
-
 end;
 
 procedure TSVGBasic.CalcClipPath;
@@ -1019,6 +1023,11 @@ begin
       TGP.Free;
     end;
 
+    if FStyleChanged then
+    begin
+      UpdateStyle;
+      FStyleChanged := False;
+    end;
     Brush := GetFillBrush;
     try
       StrokeBrush := GetStrokeBrush;
@@ -1067,27 +1076,17 @@ begin
   P.Free;
 end;
 
-procedure TSVGBasic.ReadIn(const Node: IXMLNode);
+procedure TSVGBasic.OnStyleChanged(Sender: TObject);
+begin
+  FStyleChanged := True;
+end;
+
+procedure TSVGBasic.UpdateStyle;
 var
   LRoot: TSVG;
   C: Integer;
   Style: TStyle;
 begin
-  inherited;
-
-  LoadLength(Node, 'x', FX);
-  LoadLength(Node, 'y', FY);
-  LoadLength(Node, 'width', FWidth);
-  LoadLength(Node, 'height', FHeight);
-  LoadLength(Node, 'rx', FRX);
-  LoadLength(Node, 'ry', FRY);
-
-  if (FRX = INHERIT) and (FRY <> INHERIT) then
-    FRX := FRY;
-
-  if (FRY = INHERIT) and (FRX <> INHERIT) then
-    FRY := FRX;
-
   LRoot := GetRoot;
   for C := -2 to FClasses.Count do
   begin
@@ -1119,6 +1118,30 @@ begin
   FFillURI := ParseURI(FFillURI);
   FStrokeURI := ParseURI(FStrokeURI);
   ClipURI := ParseURI(FClipURI);
+end;
+
+procedure TSVGBasic.ReadIn(const Node: IXMLNode);
+begin
+  inherited;
+
+  LoadLength(Node, 'x', FX);
+  LoadLength(Node, 'y', FY);
+  LoadLength(Node, 'width', FWidth);
+  LoadLength(Node, 'height', FHeight);
+  LoadLength(Node, 'rx', FRX);
+  LoadLength(Node, 'ry', FRY);
+
+  if (FRX = INHERIT) and (FRY <> INHERIT) then
+  begin
+    FRX := FRY;
+  end;
+
+  if (FRY = INHERIT) and (FRX <> INHERIT) then
+  begin
+    FRY := FRX;
+  end;
+
+  UpdateStyle;
 end;
 
 procedure TSVGBasic.AfterPaint(const Graphics: TGPGraphics;

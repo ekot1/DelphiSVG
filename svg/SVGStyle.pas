@@ -39,6 +39,9 @@ type
     function Dequote(const Value: string): string;
   private
     FName: string;
+  strict private
+    FOnChange: TNotifyEvent;
+    procedure DoOnChange;
   public
     constructor Create;
     destructor Destroy; override;
@@ -55,6 +58,7 @@ type
     property Values[const Key: string]: string read GetValues write PutValues; default;
     property ValuesByNum[const Index: Integer]: string read GetValuesByNum write PutValuesByNum;
     property Keys[const Index: Integer]: string read GetKey write PutKey;
+    property OnChange: TNotifyEvent read FOnChange write FOnChange;
   end;
 
   TStyleList = class(TObject)
@@ -97,7 +101,7 @@ uses
 constructor TStyle.Create;
 begin
   inherited;
-  FValues := TstringList.Create;
+  FValues := TStringList.Create;
   FValues.NameValueSeparator := '"';
 end;
 
@@ -110,7 +114,9 @@ end;
 procedure TStyle.Clear;
 begin
   if FValues <> nil then
+  begin
     FValues.Clear;
+  end;
 end;
 
 function TStyle.Clone: TStyle;
@@ -123,6 +129,14 @@ end;
 function TStyle.GetCount: Integer;
 begin
   Result := FValues.Count;
+end;
+
+procedure TStyle.DoOnChange;
+begin
+  if Assigned(FOnChange) then
+  begin
+    FOnChange(Self);
+  end;
 end;
 
 procedure TStyle.PutValues(const Key: string; const Value: string);
@@ -222,20 +236,25 @@ begin
     Result := FValues.Add(Key + FValues.NameValueSeparator + DeQuote(Value))
   else
     PutValuesByNum(Result, Value);
+  DoOnChange;
 end;
 
 function TStyle.IndexOf(const Key: string): Integer;
 begin
   for Result := 0 to FValues.Count - 1 do
+  begin
     if FValues.Names[Result] = Key then
       Exit;
+  end;
   Result := -1;
 end;
 
 procedure TStyle.Delete(Index: Integer);
 begin
   if (Index >= 0) and (Index < FValues.Count) then
+  begin
     FValues.Delete(Index);
+  end;
 end;
 
 function TStyle.Remove(const Key: string): Integer;
