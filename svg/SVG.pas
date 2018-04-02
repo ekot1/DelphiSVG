@@ -244,7 +244,7 @@ type
     FViewBox: TRectF;
     FFileName: string;
     FSize: TGPRectF;
-    
+
     procedure SetViewBox(const Value: TRectF);
 
     procedure SetSVGOpacity(Opacity: TFloat);
@@ -389,7 +389,7 @@ type
   TSVGPath = class(TSVGBasic)
   private
     procedure PrepareMoveLineCurveArc(const ACommand: Char; SL: TStrings);
-    function SeparateValues(const S: string): TStrings;
+    function SeparateValues(const ACommand: Char; const S: string): TStrings;
     function Split(const S: string): TStrings;
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
@@ -504,7 +504,7 @@ type
 implementation
 
 uses
-  System.SysUtils, System.Variants, System.StrUtils,
+  System.SysUtils, System.Variants, System.StrUtils, System.Character,
   Xml.XmlDoc,
 {$IFDEF MSWINDOWS}
   Xml.Win.msxmldom,
@@ -900,9 +900,6 @@ begin
 end;
 
 function TSVGMatrix.Transform(const P: TPointF): TPointF;
-var
-  TGP: TGPMatrix;
-  Point: TGPPointF;
 begin
   if FCalculatedMatrix.m33 = 1 then
   begin
@@ -3114,88 +3111,101 @@ var
   D: Integer;
   Command: Char;
 begin
-  if ACommand = 'M' then
-  begin
-    Command := 'L';
-  end
-  else if ACommand = 'm' then
-  begin
-    Command := 'l';
-  end
+  case ACommand of
+    'M': Command := 'L';
+    'm': Command := 'l';
   else
-  begin
     Command := ACommand;
   end;
 
-  D := 0;
-
-  if (Command = 'A') or (Command = 'a') then
-    D := 7;
-  if (Command = 'C') or (Command = 'c') then
-    D := 6;
-  if (Command = 'S') or (Command = 's') or
-     (Command = 'Q') or (Command = 'q') then
-    D := 4;
-  if (Command = 'T') or (Command = 't') or
-     (Command = 'M') or (Command = 'm') or
-     (Command = 'L') or (Command = 'l') then
-    D := 2;
-  if (Command = 'H') or (Command = 'h') or
-     (Command = 'V') or (Command = 'v') then
-    D := 1;
+  case Command of
+    'A', 'a':                     D := 7;
+    'C', 'c':                     D := 6;
+    'S', 's', 'Q', 'q':           D := 4;
+    'T', 't', 'M', 'm', 'L', 'l': D := 2;
+    'H', 'h', 'V', 'v':           D := 1;
+  else
+    D := 0;
+  end;
 
   if (D = 0) or (SL.Count = D + 1) or ((SL.Count - 1) mod D = 1) then
     Exit;
 
   for C := SL.Count - D downto (D + 1) do
+  begin
     if (C - 1) mod D = 0 then
       SL.Insert(C, Command);
+  end;
 end;
 
-function TSVGPath.SeparateValues(const S: string): TStrings;
+function TSVGPath.SeparateValues(const ACommand: Char;
+  const S: string): TStrings;
 var
-  C: Integer;
-  Help: string;
-  Command: char;
+  NumberStr: string;
+  C: Char;
+  HasDot: Boolean;
 begin
-  Help := S;
-  Insert(' ', Help, 2);
+  NumberStr := '';
+  HasDot := False;
 
   Result := TStringList.Create;
-  Result.Delimiter := ' ';
-  Result.DelimitedText := StringReplace(Help, '-', ' -', [rfReplaceAll]);
 
-  for C := Result.Count - 1 downto 0 do
+  for C in S do
   begin
-    if Result[C] = '' then
-      Result.Delete(C);
+    case C of
+      '.':
+        begin
+          if HasDot then
+          begin
+            HasDot := False;
+            Result.Add(NumberStr);
+            NumberStr := C;
+          end
+          else
+          begin
+            NumberStr := NumberStr + C;
+            HasDot := True;
+          end;
+        end;
+      '0'..'9':
+        begin
+          NumberStr := NumberStr + C;
+        end;
+      '-':
+        begin
+          if NumberStr <> '' then
+          begin
+            Result.Add(NumberStr);
+            HasDot := False;
+          end;
+          NumberStr := C;
+        end;
+      ' ':
+        begin
+          if NumberStr <> '' then
+          begin
+            Result.Add(NumberStr);
+            NumberStr := '';
+            HasDot := False;
+          end;
+        end;
+    end;
   end;
+  if NumberStr <> '' then
+  begin
+    Result.Add(NumberStr);
+  end;
+
+  Result.Insert(0, ACommand);
 
   if Result.Count > 0 then
   begin
-    if Result[0] = '' then
+    if ACommand.IsInArray(['M', 'm', 'L', 'l', 'H', 'h', 'V', 'v',
+      'C', 'c', 'S', 's', 'Q', 'q', 'T', 't', 'A', 'a']) then
     begin
-      Command := ' ';
+      PrepareMoveLineCurveArc(ACommand, Result);
     end
-    else
-    begin
-      Command := Result[0].Chars[0];
-    end;
-
-    if (Command = 'M') or (Command = 'm') or
-       (Command = 'L') or (Command = 'l') or
-       (Command = 'H') or (Command = 'h') or
-       (Command = 'V') or (Command = 'v') or
-       (Command = 'C') or (Command = 'c') or
-       (Command = 'S') or (Command = 's') or
-       (Command = 'Q') or (Command = 'q') or
-       (Command = 'T') or (Command = 't') or
-       (Command = 'A') or (Command = 'a') then
-    begin
-      PrepareMoveLineCurveArc(Command, Result);
-    end;
-
-    if (Result[0] = 'Z') or (Result[0] = 'z') then
+    else if (ACommand = 'Z') or (ACommand = 'z') then
     begin
       while Result.Count > 1 do
       begin
@@ -3207,53 +3217,31 @@ end;
 
 function TSVGPath.Split(const S: string): TStrings;
 var
-  C: Integer;
-  D: Integer;
   Part: string;
-  Help: string;
   SL: TStrings;
   Found: Integer;
-
-  function IsID(const Ch: Char): Boolean;
-  const
-    IDs: array [0..19] of Char = ('M', 'm', 'L', 'l', 'H', 'h', 'V', 'v',
-      'C', 'c', 'S', 's', 'Q', 'q', 'T', 't', 'A', 'a', 'Z', 'z');
-  var
-    ID: Char;
-  begin
-    Result := True;
-    for ID in IDs do
-    begin
-      if Ch = ID then
-        Exit;
-    end;
-    Result := False;
-  end;
-
+  StartIndex: Integer;
+  SLength: Integer;
+const
+  IDs: array [0..19] of Char = ('M', 'm', 'L', 'l', 'H', 'h', 'V', 'v',
+    'C', 'c', 'S', 's', 'Q', 'q', 'T', 't', 'A', 'a', 'Z', 'z');
 begin
   Result := TStringList.Create;
 
-  Help := S;
-  while Help <> '' do
+  StartIndex := 0;
+  SLength := Length(S);
+  while StartIndex < SLength do
   begin
-    Found := Length(Help) + 1;
-    for C := 2 to Length(Help) do
+    Found := S.IndexOfAny(IDs, StartIndex + 1);
+    if Found = -1 then
     begin
-      if IsID(Help[C]) then
-      begin
-        Found := C;
-        Break;
-      end;
+      Found := SLength;
     end;
-
-    Part := Trim(Copy(Help, 1, Found - 1));
-    SL := SeparateValues(Part);
-    for D := 0 to SL.Count - 1 do
-    begin
-      Result.Add(SL[D]);
-    end;
+    Part := S.Substring(StartIndex + 1, Found - StartIndex - 1).Trim;
+    SL := SeparateValues(S[StartIndex + 1], Part);
+    Result.AddStrings(SL);
     SL.Free;
-    Help := Trim(Copy(Help, Found, Length(Help)));
+    StartIndex := Found;
   end;
 end;
 
@@ -3295,8 +3283,8 @@ begin
 
           'Z', 'z': Element := TSVGPathClose.Create(Self);
 
-          else
-            Element := nil;
+        else
+          Element := nil;
         end;
 
         if Assigned(Element) then
