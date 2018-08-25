@@ -3901,7 +3901,8 @@ begin
     SetSize;
     ConstructPath;
   end
-  else if (Node.NodeType = TNodeType.ntElement) and (Node.NodeName = 'text') then
+  else if (Node.NodeType = TNodeType.ntElement) and (Node.NodeName = 'text')
+  and (Node.ChildNodes.Count = 1) and (Node.ChildNodes[0].NodeType = TNodeType.ntText) then
   begin
     FText := Node.Text;
     SetSize;
