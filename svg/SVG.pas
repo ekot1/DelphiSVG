@@ -785,14 +785,14 @@ begin
   LoadDisplay(Node, FDisplay);
   LoadVisible(Node, FVisible);
 
-  LoadString(Node, 'style', S);
-  FStyle.SetValues(S);
-
   for C := 0 to Node.AttributeNodes.count - 1 do
   begin
     S := Node.AttributeNodes[C].nodeName;
     FStyle.AddStyle(S, Node.AttributeNodes[C].nodeValue);
   end;
+
+  LoadString(Node, 'style', S);
+  FStyle.SetValues(S);
 
   S := '';
   LoadString(Node, 'class', S);
@@ -2421,27 +2421,29 @@ var
   SL: TStrings;
 begin
   SL := TStringList.Create;
-  for C := 0 to Node.childNodes.count - 1 do
-  begin
-    if Node.childNodes[C].nodeName = '#cdata-section' then
+  try
+    for C := 0 to Node.childNodes.count - 1 do
     begin
-      SL.Text := Node.childNodes[C].text;
+      if Node.childNodes[C].nodeName = '#cdata-section' then
+      begin
+        SL.Text := Node.childNodes[C].text;
+      end;
     end;
-  end;
 
-  for C := SL.Count - 1 downto 0 do
-  begin
-    SL[C] := Trim(SL[C]);
-    if SL[C] = '' then
+    for C := SL.Count - 1 downto 0 do
     begin
-      SL.Delete(C);
+      SL[C] := Trim(SL[C]);
+      if SL[C] = '' then
+      begin
+        SL.Delete(C);
+      end;
     end;
+
+    for C := 0 to SL.Count - 1 do
+      FStyles.Add(SL[C]);
+  finally
+    SL.Free;
   end;
-
-  for C := 0 to SL.Count - 1 do
-    FStyles.Add(SL[C]);
-
-  SL.Free;
 end;
 
 function TSVG.RenderToBitmap(Width, Height: Integer): HBITMAP;
