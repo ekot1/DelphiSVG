@@ -2053,7 +2053,7 @@ begin
   SL := TstringList.Create;
   try
     Stream.Position := 0;
-    SL.LoadFromStream(Stream);
+    SL.LoadFromStream(Stream, TEncoding.UTF8);
     LoadFromText(SL.Text);
   finally
     SL.Free;
