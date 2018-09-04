@@ -2422,11 +2422,18 @@ var
 begin
   SL := TStringList.Create;
   try
-    for C := 0 to Node.childNodes.count - 1 do
+    if Node.Attributes['type'] = 'text/css' then
     begin
-      if Node.childNodes[C].nodeName = '#cdata-section' then
+      SL.Text := Node.text;
+    end
+    else
+    begin
+      for C := 0 to Node.childNodes.count - 1 do
       begin
-        SL.Text := Node.childNodes[C].text;
+        if Node.childNodes[C].nodeName = '#cdata-section' then
+        begin
+          SL.Text := Node.childNodes[C].text;
+        end;
       end;
     end;
 
@@ -2438,7 +2445,6 @@ begin
         SL.Delete(C);
       end;
     end;
-
     for C := 0 to SL.Count - 1 do
       FStyles.Add(SL[C]);
   finally
