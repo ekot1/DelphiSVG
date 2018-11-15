@@ -116,6 +116,8 @@ type
   end;
 
   TSVGPathClose = class(TSVGPathElement)
+  private
+    function FindLastMoveTo: TSVGPathMove;
   protected
     function New(Parent: TSVGObject): TSVGObject; override;
   public
@@ -633,6 +635,23 @@ end;
 
 // TSVGPathClose
 
+function TSVGPathClose.FindLastMoveTo: TSVGPathMove;
+var
+  Index: Integer;
+  Previous: TSVGObject;
+begin
+  for Index := Parent.Count - 2 downto 0 do
+  begin
+    Previous := Parent.Items[Index];
+    if Previous is TSVGPathMove then
+    begin
+      Result := TSVGPathMove(Previous);
+      Exit;
+    end;
+  end;
+  Result := nil;
+end;
+
 function TSVGPathClose.GetBounds: TRectF;
 begin
   Result.Width := 0;
@@ -646,11 +665,20 @@ end;
 
 procedure TSVGPathClose.Read(SL: TStrings; var Position: Integer;
   Previous: TSVGPathElement);
+var
+  LastMoveTo: TSVGPathMove;
 begin
   FStartX := Previous.FStopX;
   FStartY := Previous.FStopY;
-  FStopX := FStartX;
-  FStopY := FStartY;
+  LastMoveTo := FindLastMoveTo;
+  if Assigned(LastMoveTo) then
+  begin
+    FStopX := LastMoveTo.FStopX;
+    FStopY := LastMoveTo.FStopY;
+  end else begin
+    FStopX := FStartX;
+    FStopY := FStartY;
+  end;
 end;
 
 procedure TSVGPathClose.AddToPath(Path: TGPGraphicsPath);
