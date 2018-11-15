@@ -3165,7 +3165,7 @@ begin
         begin
           if HasDot then
           begin
-            HasDot := False;
+            HasDot := C = '.';
             Result.Add(NumberStr);
             NumberStr := C;
           end
