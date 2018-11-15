@@ -3179,7 +3179,7 @@ begin
         begin
           NumberStr := NumberStr + C;
         end;
-      '-':
+      '+', '-':
         begin
           if NumberStr <> '' then
           begin
@@ -3188,7 +3188,7 @@ begin
           end;
           NumberStr := C;
         end;
-      ' ':
+      ' ', #9, #$A, #$D:
         begin
           if NumberStr <> '' then
           begin
