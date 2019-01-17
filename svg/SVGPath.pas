@@ -175,6 +175,8 @@ end;
 
 function TSVGPathMove.GetBounds: TRectF;
 begin
+  Result.Left := 0;
+  Result.Top := 0;
   Result.Width := 0;
   Result.Height := 0;
 end;
@@ -654,6 +656,8 @@ end;
 
 function TSVGPathClose.GetBounds: TRectF;
 begin
+  Result.Left := 0;
+  Result.Top := 0;
   Result.Width := 0;
   Result.Height := 0;
 end;
