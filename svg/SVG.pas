@@ -3100,7 +3100,7 @@ var
 begin
   inherited;
 
-  FPath := TGPGraphicsPath2.Create;
+  FPath := TGPGraphicsPath2.Create(FillModeWinding);
   for C := 0 to Count - 1 do
   begin
     Element := TSVGPathElement(Items[C]);
