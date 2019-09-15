@@ -3,7 +3,8 @@ program FMXSVGViewer;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  FmxSVGViewerUnit in 'FmxSVGViewerUnit.pas' {Form2};
+  FmxSVGViewerUnit in 'FmxSVGViewerUnit.pas' {Form2},
+  BitmapCodecSVG in 'BitmapCodecSVG.pas';
 
 {$R *.res}
 

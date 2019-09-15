@@ -1,6 +1,4 @@
-// Warning!
-// this currently does not work as of Delphi 10.2.2 because of following bug
-// https://quality.embarcadero.com/browse/RSP-19170
+// This unit requires at least Delphi 10.3.2 to work
 unit BitmapCodecSVG;
 
 interface
@@ -48,7 +46,6 @@ class procedure TBitmapCodecSVG.InitGDIPlus;
 var
   Status: TStatus;
 begin
-  OutputDebugString('InitGDIPlus');
   // Initialize StartupInput structure
   StartupInput.DebugEventCallback := DebugGDIPlus;
   StartupInput.SuppressBackgroundThread := False;
@@ -139,10 +136,14 @@ var
   Dest: PByte;
   Y: Integer;
   Status: TStatus;
+  IntWidth: Integer;
+  IntHeight: Integer;
 begin
   Result := False;
-  OutputDebugString(PChar('CopyToSurface ' + IntToStr(Trunc(ASVG.Width)) + ' ' + IntToStr(Trunc(ASVG.Height))));
-  GPBitmap := TGPBitmap.Create(Trunc(ASVG.Width), Trunc(ASVG.Height));
+  IntWidth := Trunc(ASVG.Width);
+  IntHeight := Trunc(ASVG.Height);
+  OutputDebugString(PChar('CopyToSurface ' + IntToStr(IntWidth) + ' ' + IntToStr(IntHeight)));
+  GPBitmap := TGPBitmap.Create(IntWidth, IntHeight);
   Status := GPBitmap.GetLastStatus;
   if Status <> TStatus.Ok then
   begin
@@ -168,18 +169,15 @@ begin
     GPRect.Width := GPBitmap.GetWidth;
     GPRect.Height := GPBitmap.GetHeight;
 
-    OutputDebugString(PChar('GPRectWidth '+ IntToStr(GPRect.Width)));
-    OutputDebugString('CopyToSurface.1');
+    OutputDebugString(PChar('CopyToSurface.GPRectWidth '+ IntToStr(GPRect.Width)));
     Status := GPBitmap.LockBits(GPRect, ImageLockModeRead, PixelFormat32bppPARGB, GPBitmapData);
     if Status = TStatus.Ok then
     begin
       Bitmap.SetSize(Trunc(ASVG.Width), Trunc(ASVG.Height), TPixelFormat.BGRA);
       Source := GPBitmapData.Scan0;
       Dest := Bitmap.Bits;
-      OutputDebugString(PChar('CopyToSurface.2 ' + IntToStr(GPBitmapData.Width) + ' ' + IntToStr(Bitmap.Width)));
       for Y := 0 to GPBitmapData.Height - 1 do
       begin
-        OutputDebugString('CopyToSurface.3');
         Move(Source^, Dest^, GPBitmapData.Stride);
         Source := Source + GPBitmapData.Stride;
         Dest := Dest + Bitmap.Pitch;
@@ -190,7 +188,7 @@ begin
     end
     else
     begin
-      OutputDebugString(PChar('CopyToSurface.4 ' + IntToStr(Ord(Status))));
+      OutputDebugString(PChar('CopyToSurface.Lockbits error ' + IntToStr(Ord(Status))));
     end;
   finally
     GPGraphics.Free;
@@ -203,7 +201,7 @@ function TBitmapCodecSVG.LoadFromStream(const AStream: TStream; const Bitmap: TB
 var
   SVG: TSVG;
 begin
-//  InitGDIPlus;
+  InitGDIPlus;
   OutputDebugString('LoadFromStream');
   try
     SVG := TSVG.Create;
