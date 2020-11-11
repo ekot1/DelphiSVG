@@ -25,8 +25,6 @@ uses
 
 function ParseAngle(const Angle: string): TFloat;
 
-function ParseByte(const S: string): Byte;
-
 function ParsePercent(const S: string): TFloat;
 
 function ParseInteger(const S: string): Integer;
@@ -34,8 +32,6 @@ function ParseInteger(const S: string): Integer;
 function ParseLength(const S: string): TFloat;
 
 function ParseUnit(const S: string): TSVGUnit;
-
-function GetFactor(const SVGUnit: TSVGUnit): TFloat;
 
 function ParseDRect(const S: string): TRectF;
 
@@ -95,21 +91,19 @@ begin
     Result := 0;
 end;
 
-function ParseByte(const S: string): Byte;
-begin
-  Result := ParseInteger(S);
-end;
-
 function ParsePercent(const S: string): TFloat;
 begin
-  Result := -1;
-  if S = '' then
-    Exit;
-
-  if S[Length(S)] = '%' then
-    Result := StrToTFloat(LeftStr(S, Length(S) - 1)) / 100
+  if Length(S) = 0 then
+  begin
+    Result := -1;
+  end
   else
-    Result := StrToTFloat(S);
+  begin
+    if S[Length(S)] = '%' then
+      Result := StrToTFloat(LeftStr(S, Length(S) - 1)) / 100
+    else
+      Result := StrToTFloat(S);
+  end;
 end;
 
 function ParseInteger(const S: string): Integer;
@@ -117,117 +111,81 @@ begin
   Result := StrToInt(S);
 end;
 
+const
+  CFactors: array [TSVGUnit] of TFloat =
+    (1,       // suNone
+     1,       // suPX
+     1.33,    // suPT
+     12*1.33, // suPC
+     96/25.4, // suMM
+     96/2.54, // suCM
+     96,      // suIN
+     16,      // suEM
+     1,       // suEX
+     1);      // suPercent
+
 function ParseLength(const S: string): TFloat;
 var
-  U: string;
   SVGUnit: TSVGUnit;
-  Factor: TFloat;
+  Number: TFloat;
+  N: string;
 begin
   SVGUnit := ParseUnit(S);
-  if SVGUnit = suPercent then
-    U := Copy(S, Length(S), 1)
+  case SVGUnit of
+    suPercent: N := Copy(S, 1, Length(S) - 1);
+    suNone   : N := S;
   else
-    if SVGUnit <> suNone then
-      U := Copy(S, Length(S) - 1, 2);
+    N := Copy(S, 1, Length(S) - 2);
+  end;
+  Number := StrToTFloat(N);
 
-  Factor := GetFactor(SVGUnit);
-  if U = 'px' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 2))
-  else
-  if U = 'pt' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 2)) * Factor
-  else
-  if U = 'pc' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 2)) * Factor
-  else
-  if U = 'mm' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 2)) * Factor
-  else
-  if U = 'cm' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 2)) * Factor
-  else
-  if U = 'in' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 2)) * Factor
-  else
-  if U = '%' then
-    Result := StrToTFloat(Copy(S, 1, Length(S) - 1)) * Factor
-  else
-    Result := StrToTFloat(S);
+  Result := Number * CFactors[SVGUnit];
 end;
 
 function ParseUnit(const S: string): TSVGUnit;
+var
+  Suffix: string;
 begin
-  Result := suNone;
-
-  if Copy(S, Length(S) - 1, 2) = 'px' then
+  Suffix := RightStr(S, 2);
+  if Suffix = 'px' then
   begin
     Result := suPx;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'pt' then
+  end
+  else if Suffix = 'pt' then
   begin
     Result := suPt;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'pc' then
+  end
+  else if Suffix = 'pc' then
   begin
     Result := suPC;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'mm' then
+  end
+  else if Suffix = 'mm' then
   begin
     Result := suMM;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'cm' then
+  end
+  else if Suffix = 'cm' then
   begin
     Result := suCM;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'in' then
+  end
+  else  if Suffix = 'in' then
   begin
     Result := suIN;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'em' then
+  end
+  else if Suffix = 'em' then
   begin
     Result := suEM;
-    Exit;
-  end;
-
-  if Copy(S, Length(S) - 1, 2) = 'ex' then
+  end
+  else if Suffix = 'ex' then
   begin
     Result := suEX;
-    Exit;
-  end;
-
-  if Copy(S, Length(S), 1) = '%' then
+  end
+  else if Suffix.EndsWith('%') then
   begin
     Result := suPercent;
-    Exit;
-  end;
-end;
-
-function GetFactor(const SVGUnit: TSVGUnit): TFloat;
-begin
-  case SVGUnit of
-    suPX: Result := 1;
-    suPT: Result := 1.25;
-    suPC: Result := 15;
-    suMM: Result := 10;
-    suCM: Result := 100;
-    suIN: Result := 25.4;
-    suEM: Result := 1;
-    suEX: Result := 1;
-    suPercent: Result := 1;
-    else
-      Result := 1;
+  end
+  else
+  begin
+    Result := suNone;
   end;
 end;
 
@@ -270,15 +228,28 @@ begin
 end;
 
 function ParseURI(const URI: string): string;
+const
+  CUriPrefix = 'url(#';
+  CUriPrefixLength = Length(CUriPrefix);
 var
   S: string;
 begin
-  Result := '';
-  if URI <> '' then
+  if Length(URI) = 0 then
+  begin
+    Result := '';
+  end
+  else
   begin
     S := Trim(URI);
-    if (Copy(S, 1, 5) = 'url(#') and (S[Length(S)] = ')') then
-      Result := Copy(S, 6, Length(S) - 6);
+
+    if S.StartsWith(CUriPrefix) and S.EndsWith(')') then
+    begin
+      Result := Copy(S, CUriPrefixLength + 1, Length(S) - (CUriPrefixLength + 1));
+    end
+    else
+    begin
+      Result := '';
+    end;
   end;
 end;
 
