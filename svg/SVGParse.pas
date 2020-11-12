@@ -341,6 +341,7 @@ end;
 function GetSkewX(const S: string): TMatrix;
 var
   SL: TStrings;
+  Angle: TFloat;
 begin
   FillChar(Result, SizeOf(Result), 0);
 
@@ -349,7 +350,8 @@ begin
     if SL.Count = 1 then
     begin
       Result := TMatrix.Identity;
-      Result.m21 := Tan(StrToTFloat(SL[0]));
+      Angle := ParseAngle(SL[0]);
+      Result.m21 := Tan(Angle);
     end;
   finally
     SL.Free;
@@ -359,6 +361,7 @@ end;
 function GetSkewY(const S: string): TMatrix;
 var
   SL: TStrings;
+  Angle: TFloat;
 begin
   FillChar(Result, SizeOf(Result), 0);
 
@@ -367,7 +370,8 @@ begin
     if SL.Count = 1 then
     begin
       Result := TMatrix.Identity;
-      Result.m12 := Tan(StrToTFloat(SL[0]));
+      Angle := ParseAngle(SL[0]);
+      Result.m12 := Tan(Angle);
     end;
   finally
     SL.Free;
@@ -428,7 +432,7 @@ begin
       if Result.m33 = 0 then
         Result := M
       else
-        Result := Result * M;
+        Result := M * Result;
     end;
 
     S := Trim(Copy(S, Stop + 1, Length(S)));

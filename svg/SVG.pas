@@ -856,14 +856,14 @@ begin
           if CompleteMatrix.m33 = 0 then
             CompleteMatrix := NewMatrix
           else
-            CompleteMatrix := CompleteMatrix * NewMatrix;
+            CompleteMatrix := NewMatrix * CompleteMatrix;
 
           if not (SVG is TSVG) then
           begin
             if LMatrix.m33 = 0 then
               LMatrix := NewMatrix
             else
-              LMatrix := LMatrix * NewMatrix;
+              LMatrix := NewMatrix * LMatrix;
           end;
         end;
       end;
