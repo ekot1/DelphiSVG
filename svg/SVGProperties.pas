@@ -28,7 +28,8 @@ procedure LoadLength(const Node: IXMLNode; const S: string; var X: TFloat);
 
 procedure LoadTFloat(const Node: IXMLNode; const S: string; var X: TFloat);
 
-procedure LoadString(const Node: IXMLNode; const S: string; var X: string);
+function LoadString(const Node: IXMLNode; const S: string): string; overload;
+procedure LoadString(const Node: IXMLNode; const S: string; var X: string); overload;
 
 procedure LoadTransform(const Node: IXMLNode; const S: string; var Matrix: TMatrix);
 
@@ -49,8 +50,7 @@ implementation
 uses
   SVGCommon, SVGParse;
 
-procedure LoadLength(const Node: IXMLNode; const S: string;
-  var X: TFloat);
+procedure LoadLength(const Node: IXMLNode; const S: string; var X: TFloat);
 var
   Attribute: IXMLNode;
 begin
@@ -61,8 +61,7 @@ begin
   end;
 end;
 
-procedure LoadTFloat(const Node: IXMLNode; const S: string;
-  var X: TFloat);
+procedure LoadTFloat(const Node: IXMLNode; const S: string; var X: TFloat);
 var
   Attribute: IXMLNode;
 begin
@@ -73,15 +72,29 @@ begin
   end;
 end;
 
-procedure LoadString(const Node: IXMLNode; const S: string;
-  var X: string);
+function LoadString(const Node: IXMLNode; const S: string): string;
 var
   Attribute: IXMLNode;
 begin
   Attribute := Node.AttributeNodes.FindNode(S);
   if Assigned(Attribute) then
   begin
-    X := Attribute.nodeValue;
+    Result := Attribute.text;
+  end
+  else
+  begin
+    Result := '';
+  end;
+end;
+
+procedure LoadString(const Node: IXMLNode; const S: string; var X: string);
+var
+  Attribute: IXMLNode;
+begin
+  Attribute := Node.AttributeNodes.FindNode(S);
+  if Assigned(Attribute) then
+  begin
+    X := Attribute.text;
   end;
 end;
 

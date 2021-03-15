@@ -777,8 +777,8 @@ end;
 
 procedure TSVGObject.ReadIn(const Node: IXMLNode);
 var
-  S: string;
   C: Integer;
+  AttributeNode: IXmlNode;
 begin
   LoadString(Node, 'id', FID);
 
@@ -787,17 +787,13 @@ begin
 
   for C := 0 to Node.AttributeNodes.count - 1 do
   begin
-    S := Node.AttributeNodes[C].nodeName;
-    FStyle.AddStyle(S, Node.AttributeNodes[C].nodeValue);
+    AttributeNode := Node.AttributeNodes[C];
+    FStyle.AddStyle(AttributeNode.nodeName, AttributeNode.text);
   end;
 
-  LoadString(Node, 'style', S);
-  FStyle.SetValues(S);
+  FStyle.SetValues(LoadString(Node, 'style'));
 
-  S := '';
-  LoadString(Node, 'class', S);
-
-  FClasses.DelimitedText := S;
+  FClasses.DelimitedText := LoadString(Node, 'class');
   for C := FClasses.Count - 1 downto 0 do
   begin
     FClasses[C] := Trim(FClasses[C]);
@@ -2963,7 +2959,7 @@ var
 begin
   inherited;
 
-  LoadString(Node, 'points', S);
+  S := LoadString(Node, 'points');
 
   S := StringReplace(S, ',', ' ', [rfReplaceAll]);
   S := StringReplace(S, '-', ' -', [rfReplaceAll]);
@@ -3264,7 +3260,7 @@ var
 begin
   inherited;
 
-  LoadString(Node, 'd', S);
+  S := LoadString(Node, 'd');
   S := StringReplace(S, ',', ' ', [rfReplaceAll]);
   SL := Split(S);
 
@@ -3441,7 +3437,7 @@ var
 begin
   inherited;
 
-  LoadString(Node, 'xlink:href', S);
+  S := LoadString(Node, 'xlink:href');
 
   if IsValid(S) then
   begin
