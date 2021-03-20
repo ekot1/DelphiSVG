@@ -1886,7 +1886,7 @@ begin
   if Assigned(SVG) and Assigned(TSVGBasic(SVG).FStrokeDashArray) and
      (not TSVGBasic(SVG).FArrayNone) then
   begin
-    Result := @TSVGBasic(SVG).FStrokeDashArray;
+    Result := @TSVGBasic(SVG).FStrokeDashArray[0];
     Count := TSVGBasic(SVG).FStrokeDashArrayCount;
   end;
 end;
@@ -2377,9 +2377,14 @@ procedure TSVG.Paint(const Graphics: TGPGraphics; Rects: PRectArray;
     if NeedsPainting(Item) then
     begin
       if InBounds(Item) then
+      begin
         Item.PaintToGraphics(Graphics);
+      end;
+
       for C := 0 to Item.Count - 1 do
+      begin
         PaintItem(Item[C]);
+      end;
     end;
   end;
 
